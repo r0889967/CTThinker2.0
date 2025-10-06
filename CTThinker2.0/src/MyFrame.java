@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class MyFrame extends JFrame {
     private int width = 1200;
     private int height = 800;
-    MyPanel panel;
-    ArrayList<MyPanel> panels = new ArrayList<>();
+    private MyPanel panel;
+    private final ArrayList<MyPanel> panels = new ArrayList<>();
 
     MyFrame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -17,6 +17,8 @@ public class MyFrame extends JFrame {
         initializeHomeScreen();
         initializeInfoScreen();
         initializeLevelSelectionScreen();
+        initializeLevel1();
+
     }
 
     private void switchPanel(MyPanel newPanel) {
@@ -29,10 +31,13 @@ public class MyFrame extends JFrame {
 
     public void initializeHomeScreen() {
         ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+
+
         MyRect startButton = new MyRect(Color.green,"Start game",30,false,false,
                 400,400,150,60,()->switchPanel(panels.get(2)));
 
-        MyRect infoButton = new MyRect(Color.blue,"Info",30,false,false,
+        MyRect infoButton = new MyRect(Color.orange,"Info",30,false,false,
                 400,500,150,60,()->switchPanel(panels.get(1)));
 
         MyRect quitButton = new MyRect(Color.red,"Quit game",30,false,false,
@@ -40,7 +45,6 @@ public class MyFrame extends JFrame {
 
         buttons.add(startButton);buttons.add(infoButton);buttons.add(quitButton);
 
-        ArrayList<MyString> texts = new ArrayList<>();
         MyString welcome1 = new MyString(Color.black,"Welcome to CTThinker2.0",75,0,75);
         MyString welcome2 = new MyString(Color.black,"Great tool to improve your critical thinking skills",30,0,110);
 
@@ -53,11 +57,12 @@ public class MyFrame extends JFrame {
 
     public void initializeInfoScreen(){
         ArrayList<MyRect> buttons = new ArrayList<>();
-        MyRect mainMenuButton = new MyRect(Color.blue,"Main menu",30,false,false,
-                24,700,150,60,()->switchPanel(panels.get(0)));
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        MyRect mainMenuButton = new MyRect(Color.orange,"Main menu",30,false,false,
+                0,700,150,60,()->switchPanel(panels.get(0)));
         buttons.add(mainMenuButton);
 
-        ArrayList<MyString> texts = new ArrayList<>();
         MyString infoHeader = new MyString(Color.black,"Info about this tool",75,0,75);
         MyString info1 = new MyString(Color.black,"CTThinker2.0 is a tool to teach students important CT skills.",30,0,110);
         MyString info2 = new MyString(Color.black,"There are in total 5 modules with 15 levels each.",30,0,140);
@@ -77,17 +82,47 @@ public class MyFrame extends JFrame {
 
     public void initializeLevelSelectionScreen() {
         ArrayList<MyRect> buttons = new ArrayList<>();
-        MyRect mainMenuButton = new MyRect(Color.blue,"Main menu",30,false,false,
-                24,700,150,60,()->switchPanel(panels.get(0)));
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        MyRect mainMenuButton = new MyRect(Color.orange,"Main menu",30,false,false,
+                0,700,150,60,()->switchPanel(panels.get(0)));
         buttons.add(mainMenuButton);
 
-        ArrayList<MyString> texts = new ArrayList<>();
         MyString selectALevel = new MyString(Color.black,"Select a level",75,0,75);
         texts.add(selectALevel);
+
+        String[] moduleTitles = {"Abstraction","Decomposition","Pattern regonization","Algorithmic thinking","Mixed"};
+        for(int i=0;i<5;i++) {
+            for(int j=0;j<15;j++) {
+                int finalI = i;
+                int finalJ = j;
+                MyRect levelButton = new MyRect(new Color(0,162,232),String.valueOf(i*15+j+1),30,false,false,
+                        70*j,i*125+115,60,60,()->switchPanel(panels.get(finalI *15+ finalJ +3)));
+                buttons.add(levelButton);
+            }
+
+            MyString moduleHeader = new MyString(Color.black,"Module "+(i+1)+": "+ moduleTitles[i],30,0,i*125+110);
+            texts.add(moduleHeader);
+        }
 
         MyPanel levelSelectionPanel = new MyPanel(buttons,texts);
         panels.add(levelSelectionPanel);
 
+    }
+
+    public void initializeLevel1(){
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        MyRect exitButton = new MyRect(Color.red,"Exit level",30,false,false,
+                0,700,150,60,()->switchPanel(panels.get(2)));
+        buttons.add(exitButton);
+
+        MyString levelName = new MyString(Color.black,"Level 1-1",75,0,75);
+        texts.add(levelName);
+
+        MyPanel level1 = new MyPanel(buttons,texts);
+        panels.add(level1);
     }
 
 

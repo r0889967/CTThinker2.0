@@ -4,8 +4,8 @@ public class MyRect {
     private final Color color;
     private final String text;
     private final int textSize;
-    private boolean dragable;
-    private boolean markable;
+    private final boolean dragable;
+    private final boolean markable;
     private int x;
     private int y;
     private final int width;

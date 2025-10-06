@@ -3,9 +3,9 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 public class MyMouseMotionListener implements MouseMotionListener {
-    MyPanel panel;
-    ArrayList<MyRect> buttons;
-    MyRect button;
+    private final MyPanel panel;
+    private final ArrayList<MyRect> buttons;
+    private MyRect button;
 
     MyMouseMotionListener(MyPanel panel,ArrayList<MyRect> buttons) {
         this.panel = panel;
