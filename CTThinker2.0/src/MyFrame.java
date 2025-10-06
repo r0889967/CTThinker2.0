@@ -1,5 +1,5 @@
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class MyFrame extends JFrame {
@@ -7,6 +7,7 @@ public class MyFrame extends JFrame {
     private int height = 800;
     private MyPanel panel;
     private final ArrayList<MyPanel> panels = new ArrayList<>();
+    private int levelNumber = 1;
 
     MyFrame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -17,8 +18,8 @@ public class MyFrame extends JFrame {
         initializeHomeScreen();
         initializeInfoScreen();
         initializeLevelSelectionScreen();
-        initializeLevel1();
-
+        initializeLevel1();initializeLevel2();initializeLevel3();initializeLevel4();initializeLevel5();
+        initializeLevel6();initializeLevel7();initializeLevel8();initializeLevel9();initializeLevel10();
     }
 
     private void switchPanel(MyPanel newPanel) {
@@ -35,13 +36,13 @@ public class MyFrame extends JFrame {
 
 
         MyRect startButton = new MyRect(Color.green,"Start game",30,false,false,
-                400,400,150,60,()->switchPanel(panels.get(2)));
+                500,400,150,60,()->switchPanel(panels.get(2)));
 
         MyRect infoButton = new MyRect(Color.orange,"Info",30,false,false,
-                400,500,150,60,()->switchPanel(panels.get(1)));
+                500,500,150,60,()->switchPanel(panels.get(1)));
 
         MyRect quitButton = new MyRect(Color.red,"Quit game",30,false,false,
-                400,600,150,60, this::dispose);
+                500,600,150,60, this::dispose);
 
         buttons.add(startButton);buttons.add(infoButton);buttons.add(quitButton);
 
@@ -107,22 +108,115 @@ public class MyFrame extends JFrame {
 
         MyPanel levelSelectionPanel = new MyPanel(buttons,texts);
         panels.add(levelSelectionPanel);
-
     }
 
-    public void initializeLevel1(){
-        ArrayList<MyRect> buttons = new ArrayList<>();
-        ArrayList<MyString> texts = new ArrayList<>();
-
+    public void initializeLevelBaseElems(ArrayList<MyRect> buttons, ArrayList<MyString> texts) {
         MyRect exitButton = new MyRect(Color.red,"Exit level",30,false,false,
                 0,700,150,60,()->switchPanel(panels.get(2)));
         buttons.add(exitButton);
 
-        MyString levelName = new MyString(Color.black,"Level 1-1",75,0,75);
+        MyString levelName = new MyString(Color.black,"Level "+levelNumber++,75,0,75);
         texts.add(levelName);
+    }
+    
+    public void initializeLevel1(){
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
 
-        MyPanel level1 = new MyPanel(buttons,texts);
-        panels.add(level1);
+        initializeLevelBaseElems(buttons,texts);
+
+        MyPanel level = new MyPanel(buttons,texts);
+        panels.add(level);
+    }
+
+    public void initializeLevel2(){
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        initializeLevelBaseElems(buttons,texts);
+
+        MyPanel level = new MyPanel(buttons,texts);
+        panels.add(level);
+    }
+
+    public void initializeLevel3(){
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        initializeLevelBaseElems(buttons,texts);
+
+        MyPanel level = new MyPanel(buttons,texts);
+        panels.add(level);
+    }
+
+    public void initializeLevel4(){
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        initializeLevelBaseElems(buttons,texts);
+
+        MyPanel level = new MyPanel(buttons,texts);
+        panels.add(level);
+    }
+
+    public void initializeLevel5(){
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        initializeLevelBaseElems(buttons,texts);
+
+        MyPanel level = new MyPanel(buttons,texts);
+        panels.add(level);
+    }
+
+    public void initializeLevel6(){
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        initializeLevelBaseElems(buttons,texts);
+
+        MyPanel level = new MyPanel(buttons,texts);
+        panels.add(level);
+    }
+
+    public void initializeLevel7(){
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        initializeLevelBaseElems(buttons,texts);
+
+        MyPanel level = new MyPanel(buttons,texts);
+        panels.add(level);
+    }
+
+    public void initializeLevel8(){
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        initializeLevelBaseElems(buttons,texts);
+
+        MyPanel level = new MyPanel(buttons,texts);
+        panels.add(level);
+    }
+
+    public void initializeLevel9(){
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        initializeLevelBaseElems(buttons,texts);
+
+        MyPanel level = new MyPanel(buttons,texts);
+        panels.add(level);
+    }
+
+    public void initializeLevel10(){
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+
+        initializeLevelBaseElems(buttons,texts);
+
+        MyPanel level = new MyPanel(buttons,texts);
+        panels.add(level);
     }
 
 
