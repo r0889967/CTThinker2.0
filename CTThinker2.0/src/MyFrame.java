@@ -104,7 +104,7 @@ public class MyFrame extends JFrame {
 
         int next = levelNumber+3;
 
-        MyRect nextLevelButton = new MyRect(Color.blue,"Next level",30,
+        MyRect nextLevelButton = new MyRect(Color.green,"Next level",30,
                 1050,700,150,60,()->{
             if(panels.get(next-1).isAnswerCorrect()){
                 switchPanel(panels.get(next));
@@ -222,21 +222,38 @@ public class MyFrame extends JFrame {
     public void initializeLevel4(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
+        ArrayList<Integer> answers = new ArrayList<>();
+        MyPanel level = new MyPanel(buttons,texts,answers);
+        panels.add(level);
 
         initializeLevelBaseElems(buttons,texts);
 
-        MyPanel level = new MyPanel(buttons,texts);
-        panels.add(level);
+        level.addText("The Grim Reaper has arrived to take Sarah's life, but Sarah didn't want to die yet, so she begged the Grim Reaper",220,30);
+        level.addText("to let her live longer by lighting up a candle and saying \"Let me live until you see this candle burns up one day.\".",220,50);
+        level.addText("The grim reaper agreed and left the scene. Sarah them immediately extinguished the candle by blowing at it.",220,70);
+        level.addText("Surprisely, even after many years, the Grim Reaper never came again to take Sarah's life.",220,90);
+
+        level.addText("How did Sarah escape her death? Please mark the correct box.",220,130);
+
+        level.addButton("Because the Grim Reaper wanted to stay away from candles.",20,true,0,260,600,40);
+        level.addButton("Because the Grim Reaper decided that Sarah can live forever.",20,true,0,320,600,40);
+        level.addButton("Because the Grim Reaper was afraid to return to Sarah once more.",20,true,0,380,600,40);
+        level.addButton("Because the Grim Reaper never saw the candle burning up.",20,true,0,440,600,40);
+        level.addButton("Because the Grim Reaper was too busy with taking others' life that he forgot Sarah.",20,true,0,500,600,40);
+        level.addButton("Because the Grim Reaper was killed by something or someone.",20,true,0,560,600,40);
+
+        level.addAnswer(3);
     }
 
     public void initializeLevel5(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
+        ArrayList<Integer> answers = new ArrayList<>();
+        MyPanel level = new MyPanel(buttons,texts,answers);
+        panels.add(level);
 
         initializeLevelBaseElems(buttons,texts);
 
-        MyPanel level = new MyPanel(buttons,texts);
-        panels.add(level);
     }
 
     public void initializeLevel6(){
