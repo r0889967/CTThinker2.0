@@ -14,6 +14,7 @@ public class MyRect {
     private final int height;
     private boolean marked = false;
     private Runnable function = ()->{};
+    private boolean locked = false;
 
     MyRect(Color color,String text,int textSize,boolean dragable,boolean markable,int x, int y, int width, int height,Runnable function) {
         this.color = color;
@@ -28,6 +29,18 @@ public class MyRect {
         this.function = function;
     }
 
+    MyRect(Color color,String text,int textSize,int x, int y, int width, int height,Runnable function,boolean locked) {
+        this.color = color;
+        this.text = text;
+        this.textSize = textSize;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.function = function;
+        this.locked = locked;
+    }
+
     MyRect(Color color,String text,int textSize,int x, int y, int width, int height,Runnable function) {
         this.color = color;
         this.text = text;
@@ -37,6 +50,17 @@ public class MyRect {
         this.width = width;
         this.height = height;
         this.function = function;
+    }
+
+    MyRect(Color color,String text,int textSize,boolean markable,int x, int y, int width, int height) {
+        this.color = color;
+        this.text = text;
+        this.textSize = textSize;
+        this.markable = markable;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
     }
 
     MyRect(String text,int textSize,boolean markable,int x, int y, int width, int height) {
@@ -96,5 +120,14 @@ public class MyRect {
 
     public void executeFunction(){
         function.run();
+    }
+
+    public boolean isLocked() {
+        return locked;
+    }
+
+    public void unlock() {
+        System.out.println("unlocked");
+        locked = false;
     }
 }

@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Set;
 
 public class MyPanel extends JPanel {
     private final ArrayList<MyRect> buttons;
@@ -41,9 +40,16 @@ public class MyPanel extends JPanel {
         this.texts.add(new MyString(text,x,y));
     }
 
+    public void addButton(Color color,String text,int textSize,int x, int y, int width, int height,Runnable function,boolean locked){
+        this.buttons.add(new MyRect(color,text,textSize,x,y,width,height,function,locked));
+    }
+
     public void addButton(Color color,String text,int textSize,int x, int y, int width, int height,Runnable function){
         this.buttons.add(new MyRect(color,text,textSize,x,y,width,height,function));
+    }
 
+    public void addButton(Color color,String text,int textSize,boolean markable,int x, int y, int width, int height){
+        this.buttons.add(new MyRect(color,text,textSize,markable,x,y,width,height));
     }
 
     public void addButton(String text,int textSize,boolean markable,int x, int y, int width, int height){
@@ -52,6 +58,10 @@ public class MyPanel extends JPanel {
 
     public void addAnswer(int answerIdx){
         this.answers.add(answerIdx);
+    }
+
+    public ArrayList<MyRect> getButtons(){
+        return buttons;
     }
 
 

@@ -42,7 +42,8 @@ public class MyFrame extends JFrame {
         panel.addButton(Color.red,"Quit game",30, 500,600,150,60, this::dispose);
 
         panel.addText("Welcome to CTThinker2.0",75,0,75);
-        panel.addText("Great tool to improve your critical thinking skills",0,110);
+        panel.addText("Great tool to improve your critical thinking skills",30,0,110);
+        panel.addText("Click on the info button for more information",30,0,140);
 
         this.add(panel);
     }
@@ -56,13 +57,13 @@ public class MyFrame extends JFrame {
         infoPanel.addButton(Color.orange,"Main menu",30, 0,700,150,60,()->switchPanel(panels.get(0)));
 
         infoPanel.addText("Info about this tool",75,0,75);
-        infoPanel.addText("CTThinker2.0 is a tool to teach students important CT skills.",0,110);
-        infoPanel.addText("There are in total 5 modules with 15 levels each.",0,130);
-        infoPanel.addText("Module 1 focuses on abstraction.",0,150);
-        infoPanel.addText("Module 2 focuses on decomposition.",0,170);
-        infoPanel.addText("Module 3 focuses on pattern regonization.",0,190);
-        infoPanel.addText("Module 4 focuses on algorithmic thinking.",0,210);
-        infoPanel.addText("Module 5 combines the 4 previous aspects together.",0,230);
+        infoPanel.addText("CTThinker2.0 is a tool to teach students important CT skills.",30,0,100);
+        infoPanel.addText("There are in total 5 modules with 15 levels each.",30,0,130);
+        infoPanel.addText("Module 1 focuses on abstraction: identifying relevant information in a problem.",30,0,160);
+        infoPanel.addText("Module 2 focuses on decomposition: dividing a problem into multiple subproblems that are easier to solve.",30,0,190);
+        infoPanel.addText("Module 3 focuses on pattern regonization: finding structures or similarities between problems.",30,0,220);
+        infoPanel.addText("Module 4 focuses on algorithmic thinking: constructing a systematic way of solving a problem.",30,0,250);
+        infoPanel.addText("Module 5 combines the 4 previous aspects together, fostering CT skills.",30,0,280);
 
     }
 
@@ -82,12 +83,18 @@ public class MyFrame extends JFrame {
             for(int j=0;j<15;j++) {
                 int finalI = i;
                 int finalJ = j;
+
                 levelSelectionPanel.addButton(new Color(0,162,232),String.valueOf(i*15+j+1),30,
-                        70*j,i*125+115,60,60,()->switchPanel(panels.get(finalI *15+ finalJ +3)));
+                        70*j,i*125+115,60,60,()->{
+
+                        switchPanel(panels.get(finalI *15+ finalJ +3));
+
+                        },true);
             }
 
-            levelSelectionPanel.addText("Module "+(i+1)+": "+ moduleTitles[i],0,i*125+110);
+            levelSelectionPanel.addText("Module "+(i+1)+": "+ moduleTitles[i],30,0,i*125+110);
         }
+        buttons.get(1).unlock();
     }
 
     public void initializeLevelBaseElems(ArrayList<MyRect> buttons, ArrayList<MyString> texts) {
@@ -194,11 +201,22 @@ public class MyFrame extends JFrame {
     public void initializeLevel3(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
+        ArrayList<Integer> answers = new ArrayList<>();
+        MyPanel level = new MyPanel(buttons,texts,answers);
+        panels.add(level);
 
         initializeLevelBaseElems(buttons,texts);
 
-        MyPanel level = new MyPanel(buttons,texts);
-        panels.add(level);
+        level.addText("This level is very easy, just calculate 5-2=?. Please mark the correct box.",220,30);
+
+        level.addButton("1",20,true,0,260,100,40);
+        level.addButton("2",20,true,120,260,100,40);
+        level.addButton(Color.white,"3",75,true,190,0,100,75);
+        level.addButton("4",20,true,240,260,100,40);
+        level.addButton("5",20,true,360,260,100,40);
+        level.addButton("6",20,true,480,260,100,40);
+
+        level.addAnswer(2);
     }
 
     public void initializeLevel4(){
