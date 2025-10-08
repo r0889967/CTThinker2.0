@@ -3,17 +3,17 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 public class MyRect {
-    private final Color color;
+    private Color color = Color.lightGray;
     private final String text;
     private final int textSize;
-    private final boolean dragable;
-    private final boolean markable;
+    private boolean dragable = false;
+    private boolean markable = false;
     private int x;
     private int y;
     private final int width;
     private final int height;
     private boolean marked = false;
-    private final Runnable function;
+    private Runnable function = ()->{};
 
     MyRect(Color color,String text,int textSize,boolean dragable,boolean markable,int x, int y, int width, int height,Runnable function) {
         this.color = color;
@@ -26,6 +26,27 @@ public class MyRect {
         this.width = width;
         this.height = height;
         this.function = function;
+    }
+
+    MyRect(Color color,String text,int textSize,int x, int y, int width, int height,Runnable function) {
+        this.color = color;
+        this.text = text;
+        this.textSize = textSize;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.function = function;
+    }
+
+    MyRect(String text,int textSize,boolean markable,int x, int y, int width, int height) {
+        this.text = text;
+        this.textSize = textSize;
+        this.markable = markable;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
     }
 
     public void draw(Graphics g) {
@@ -60,6 +81,10 @@ public class MyRect {
         if(markable) {
             marked = !marked;
         }
+    }
+
+    public boolean isMarked() {
+        return marked;
     }
 
     public void drag(int newx, int newy) {

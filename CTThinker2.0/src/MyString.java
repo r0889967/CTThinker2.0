@@ -3,9 +3,9 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 public class MyString {
-    private final Color color;
+    private Color color = Color.BLACK;
     private final String text;
-    private final int textSize;
+    private int textSize = 20;
     private final int x;
     private final int y;
 
@@ -13,6 +13,19 @@ public class MyString {
         this.color = color;
         this.text = text;
         this.textSize = textSize;
+        this.x = x;
+        this.y = y;
+    }
+
+    MyString(String text,int textSize,int x,int y){
+        this.text = text;
+        this.textSize = textSize;
+        this.x = x;
+        this.y = y;
+    }
+
+    MyString(String text,int x,int y){
+        this.text = text;
         this.x = x;
         this.y = y;
     }
