@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 public class MyRect {
     private Color color = Color.lightGray;
-    private final String text;
+    private String text;
     private final int textSize;
     private boolean dragable = false;
     private boolean markable = false;
@@ -14,7 +14,6 @@ public class MyRect {
     private final int height;
     private boolean marked = false;
     private Runnable function = ()->{};
-    private boolean locked = false;
 
     MyRect(Color color,String text,int textSize,boolean dragable,boolean markable,int x, int y, int width, int height,Runnable function) {
         this.color = color;
@@ -27,18 +26,6 @@ public class MyRect {
         this.width = width;
         this.height = height;
         this.function = function;
-    }
-
-    MyRect(Color color,String text,int textSize,int x, int y, int width, int height,Runnable function,boolean locked) {
-        this.color = color;
-        this.text = text;
-        this.textSize = textSize;
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.function = function;
-        this.locked = locked;
     }
 
     MyRect(Color color,String text,int textSize,int x, int y, int width, int height,Runnable function) {
@@ -73,6 +60,25 @@ public class MyRect {
         this.height = height;
     }
 
+    MyRect(String text,int textSize,int x, int y, int width, int height) {
+        this.text = text;
+        this.textSize = textSize;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
+    MyRect(String text,int textSize,int x, int y, boolean dragable,int width, int height) {
+        this.text = text;
+        this.textSize = textSize;
+        this.x = x;
+        this.y = y;
+        this.dragable = dragable;
+        this.width = width;
+        this.height = height;
+    }
+
     public void draw(Graphics g) {
         if (marked){
             g.setColor(Color.cyan);
@@ -83,6 +89,14 @@ public class MyRect {
         g.setColor(Color.black);
         g.setFont(new Font("Times New Roman",Font.PLAIN,textSize));
         g.drawString(text, x, y+textSize);
+    }
+
+    public String getText(){
+        return text;
+    }
+
+    public void setText(String text){
+        this.text = text;
     }
 
     public int getX(){
@@ -120,14 +134,5 @@ public class MyRect {
 
     public void executeFunction(){
         function.run();
-    }
-
-    public boolean isLocked() {
-        return locked;
-    }
-
-    public void unlock() {
-        System.out.println("unlocked");
-        locked = false;
     }
 }
