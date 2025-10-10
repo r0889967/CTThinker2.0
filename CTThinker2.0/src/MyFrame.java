@@ -1,6 +1,9 @@
 import javax.swing.JFrame;
 import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MyFrame extends JFrame {
     private int width = 1200;
@@ -9,7 +12,7 @@ public class MyFrame extends JFrame {
     private final ArrayList<MyPanel> panels = new ArrayList<>();
     private int levelNumber = 1;
 
-    MyFrame() {
+    MyFrame() throws FileNotFoundException {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(width, height);
         this.setVisible(true);
@@ -20,6 +23,20 @@ public class MyFrame extends JFrame {
         initializeLevelSelectionScreen();
         initializeLevel1();initializeLevel2();initializeLevel3();initializeLevel4();initializeLevel5();
         initializeLevel6();initializeLevel7();initializeLevel8();initializeLevel9();initializeLevel10();
+    }
+
+    private void addTextsToLevel(String path,MyPanel panel,int x_offset,int y_offset,int spacing) throws FileNotFoundException {
+        File file = new File(path);
+
+        Scanner scanner = new Scanner(file);
+
+        String text = "";
+        int i = 0;
+        while (scanner.hasNextLine()) {
+            text = scanner.nextLine();
+            panel.addText(text,x_offset,y_offset+i*spacing);
+            i++;
+        }
     }
 
     private void switchPanel(MyPanel newPanel) {
@@ -143,7 +160,7 @@ public class MyFrame extends JFrame {
         texts.add(levelName);
     }
 
-    private void initializeLevel1(){
+    private void initializeLevel1() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
@@ -152,26 +169,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
 
-
-        level.addText("Sarah had lost her 4 balls while she was playing outside yesterday, " +
-                "so she decided to for look them.",220,30);
-        level.addText("First she found her red ball when she fell into a hole. " +
-                "As she continued to look for the other balls,",220,50);
-        level.addText("a random bird flew by. She soon walked deep into the forest, " +
-                "and a bunch of creepy-looking trees scared her very badly.",220,70);
-        level.addText("After some more walking, she finally found the yellow ball under a stone.",220,90);
-        level.addText("While looking for the green ball, she came across a abandoned hut filled with many spiders.",20,220,110);
-        level.addText("One spider suddenly jumped out of the hut and climbed onto her, " +
-                "causing her to panic and ran into a birch.",220,130);
-        level.addText("When she hit the birch, the green ball fell from the birch and onto her head, " +
-                "a bear in the distance looked confused at her, ",220,150);
-        level.addText("wondering what was going on. She searched for the last ball, " +
-                "which was the blue ball. She walked across a pond, ",220,170);
-        level.addText("eventually stopping at the foot of a hill, " +
-                "where she found the blue ball and walked back home.",220,190);
-        level.addText("What elements played no role with helping Sarah look for the balls? " +
-                "Please mark the correct boxes below.",220,230);
-        level.addText("Hint: read the text carefully.", 220,250);
+        addTextsToLevel("src\\levels\\level1.txt",level,220,30,20);
 
         level.addButton("The hole",20,true,0,260,120,40);
         level.addButton("The bird",20,true,130,260,120,40);
