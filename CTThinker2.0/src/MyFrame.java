@@ -58,6 +58,25 @@ public class MyFrame extends JFrame {
         }
     }
 
+    private void addOptionsToLevelV(String path,LevelPanelTypeA panel,int x_offset,int y_offset,int spacing, int b_width, int b_height) throws FileNotFoundException {
+        File file = new File(path);
+
+        Scanner scanner = new Scanner(file);
+
+        String text = "";
+        int i = 0;
+        while (scanner.hasNextLine()) {
+            text = scanner.nextLine();
+            if (text.charAt(text.length()-1)=='*') {
+                panel.addButton(text.substring(0,text.length()-1), 20, true, x_offset, y_offset+ i * spacing, b_width, b_height);
+                panel.addAnswer(i);
+            }else{
+                panel.addButton(text, 20, true, x_offset, y_offset+ i * spacing, b_width, b_height);
+            }
+            i++;
+        }
+    }
+
     private void switchPanel(MyPanel newPanel) {
         this.remove(panel);
         panel = newPanel;
@@ -233,15 +252,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
         addTextsToLevel("src\\levels\\level4.txt",level,220,30,20);
-
-        level.addButton("Because the Grim Reaper wanted to stay away from candles.",20,true,0,260,600,40);
-        level.addButton("Because the Grim Reaper decided that Sarah can live forever.",20,true,0,320,600,40);
-        level.addButton("Because the Grim Reaper was afraid to return to Sarah once more.",20,true,0,380,600,40);
-        level.addButton("Because the Grim Reaper never saw the candle burning up.",20,true,0,440,600,40);
-        level.addButton("Because the Grim Reaper was too busy with taking others' life that he forgot Sarah.",20,true,0,500,600,40);
-        level.addButton("Because the Grim Reaper was killed by something or someone.",20,true,0,560,600,40);
-
-        level.addAnswer(3);
+        addOptionsToLevelV("src\\levels\\level4b.txt",level,0,260,60,600,40);
     }
 
     private void initializeLevel5() throws FileNotFoundException {
@@ -286,16 +297,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
         addTextsToLevel("src\\levels\\level8.txt",level,220,30,20);
-
-        level.addButton("The snail was a super-snail that can go very fast.",20,true,0,260,700,40);
-        level.addButton("The man got overconfident and thus decided to sleep for many hours during the race, allowing the snail to win.",20,true,0,320,700,40);
-        level.addButton("The snail had asked an identical looking snail to deploy itself at the finish line beforehand, creating the illusion that the snail won.",20,true,0,380,700,40);
-        level.addButton("The snail had learned to teleport",20,true,0,440,700,40);
-        level.addButton("The man might had faced some unforeseen circumstances during the race, causing him to lose.",20,true,0,500,700,40);
-
-        level.addAnswer(1);
-        level.addAnswer(2);
-        level.addAnswer(4);
+        addOptionsToLevelV("src\\levels\\level8b.txt",level,0,260,60,700,40);
     }
 
     private void initializeLevel9() throws FileNotFoundException {
@@ -307,19 +309,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
         addTextsToLevel("src\\levels\\level9.txt",level,220,30,20);
-
-        level.addButton("apple",20,true,0,260,100,40);
-        level.addButton("pear",20,true,120,260,100,40);
-        level.addButton("watermelon",20,true,240,260,100,40);
-        level.addButton("kiwi",20,true,360,260,100,40);
-        level.addButton("cherry",20,true,480,260,100,40);
-        level.addButton("peach",20,true,600,260,100,40);
-        level.addButton("strawberry",20,true,720,260,100,40);
-        level.addButton("orange",20,true,840,260,100,40);
-        level.addButton("banana",20,true,960,260,100,40);
-
-        level.addAnswer(3);
-        level.addAnswer(7);
+        addOptionsToLevelH("src\\levels\\level9b.txt",level,0,260,120,100,40);
     }
 
     private void initializeLevel10(){

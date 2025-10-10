@@ -1,0 +1,9 @@
+apple
+pear
+watermelon
+kiwi*
+cherry
+peach
+strawberry
+orange*
+banana
