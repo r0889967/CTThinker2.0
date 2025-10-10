@@ -39,6 +39,25 @@ public class MyFrame extends JFrame {
         }
     }
 
+    private void addOptionsToLevelH(String path,LevelPanelTypeA panel,int x_offset,int y_offset,int spacing, int b_width, int b_height) throws FileNotFoundException {
+        File file = new File(path);
+
+        Scanner scanner = new Scanner(file);
+
+        String text = "";
+        int i = 0;
+        while (scanner.hasNextLine()) {
+            text = scanner.nextLine();
+            if (text.charAt(text.length()-1)=='*') {
+                panel.addButton(text.substring(0,text.length()-1), 20, true, x_offset + i * spacing, y_offset, b_width, b_height);
+                panel.addAnswer(i);
+            }else{
+                panel.addButton(text, 20, true, x_offset + i * spacing, y_offset, b_width, b_height);
+            }
+            i++;
+        }
+    }
+
     private void switchPanel(MyPanel newPanel) {
         this.remove(panel);
         panel = newPanel;
@@ -169,20 +188,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
         addTextsToLevel("src\\levels\\level1.txt",level,220,30,20);
-
-        level.addButton("The hole",20,true,0,260,120,40);
-        level.addButton("The bird",20,true,130,260,120,40);
-        level.addButton("The scary trees",20,true,260,260,120,40);
-        level.addButton("The stone",20,true,390,260,120,40);
-        level.addButton("The spider",20,true,520,260,120,40);
-        level.addButton("The birch",20,true,650,260,120,40);
-        level.addButton("The bear",20,true,780,260,120,40);
-        level.addButton("The pond",20,true,910,260,120,40);
-
-        level.addAnswer(1);
-        level.addAnswer(2);
-        level.addAnswer(6);
-        level.addAnswer(7);
+        addOptionsToLevelH("src\\levels\\level1b.txt",level,0,260,130,120,40);
     }
 
     private void initializeLevel2() throws FileNotFoundException {
@@ -194,21 +200,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
         addTextsToLevel("src\\levels\\level2.txt",level,220,30,20);
-
-        level.addButton("BDCFEA",20,true,0,260,100,40);;;;;
-        level.addButton("CEAFDB",20,true,120,260,100,40);
-        level.addButton("EACBFD",20,true,240,260,100,40);
-        level.addButton("BEDCFA",20,true,360,260,100,40);
-        level.addButton("ABCDEF",20,true,480,260,100,40);
-        level.addButton("FAEBDC",20,true,600,260,100,40);
-        level.addButton("CBDEFA",20,true,720,260,100,40);;;;;
-        level.addButton("BFCDEA",20,true,840,260,100,40);
-        level.addButton("DBCFEA",20,true,960,260,100,40);
-        level.addButton("CBDEAF",20,true,1080,260,100,40);;;;;
-
-        level.addAnswer(0);
-        level.addAnswer(6);
-        level.addAnswer(9);
+        addOptionsToLevelH("src\\levels\\level2b.txt",level,0,260,110,100,40);
     }
 
     private void initializeLevel3() throws FileNotFoundException {
