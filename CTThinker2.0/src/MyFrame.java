@@ -168,7 +168,6 @@ public class MyFrame extends JFrame {
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         panels.add(level);
 
-
         addTextsToLevel("src\\levels\\level1.txt",level,220,30,20);
 
         level.addButton("The hole",20,true,0,260,120,40);
@@ -186,7 +185,7 @@ public class MyFrame extends JFrame {
         level.addAnswer(7);
     }
 
-    private void initializeLevel2(){
+    private void initializeLevel2() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
@@ -194,19 +193,7 @@ public class MyFrame extends JFrame {
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         panels.add(level);
 
-
-
-        level.addText("There are 6 letters which are A,B,C,D,E and F, and your job is to arrange these letters, " +
-                "but you can't",220,30);
-        level.addText("just do it your own way, as there are restrictions for each letter.",220,50);
-        level.addText("A must be on the right side of C and E.",220,70);
-        level.addText("B cannot lay between D and F.",220,90);
-        level.addText("C must be directly next to B or D.",220,110);
-        level.addText("D cannot be directly next to F.",220,130);
-        level.addText("E must be on the 4th, 5th or 6th place.",220,150);
-        level.addText("F must be directly next to a vowel.",220,170);
-
-        level.addText("What are the correct ways to arrange the letters? Please mark the correct boxes below.",220,210);
+        addTextsToLevel("src\\levels\\level2.txt",level,220,30,20);
 
         level.addButton("BDCFEA",20,true,0,260,100,40);;;;;
         level.addButton("CEAFDB",20,true,120,260,100,40);
@@ -224,7 +211,7 @@ public class MyFrame extends JFrame {
         level.addAnswer(9);
     }
 
-    private void initializeLevel3(){
+    private void initializeLevel3() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
@@ -232,9 +219,7 @@ public class MyFrame extends JFrame {
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         panels.add(level);
 
-        level.addText("This level is very easy, just calculate 5-2=?, right?. Please mark the correct box",220,30);
-        level.addText("Wait a second?! Something seems to be odd about this level.",220,50);
-        level.addText("Hint: you have to think outside the box.",220,70);
+        addTextsToLevel("src\\levels\\level3.txt",level,220,30,20);
 
 
         level.addButton("1",20,true,0,260,100,40);
@@ -247,7 +232,7 @@ public class MyFrame extends JFrame {
         level.addAnswer(2);
     }
 
-    private void initializeLevel4(){
+    private void initializeLevel4() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
@@ -255,12 +240,7 @@ public class MyFrame extends JFrame {
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         panels.add(level);
 
-        level.addText("The Grim Reaper has arrived to take Sarah's life, but Sarah didn't want to die yet, so she begged the Grim Reaper",220,30);
-        level.addText("to let her live longer by lighting up a candle and saying \"Let me live until you see this candle burns up one day.\".",220,50);
-        level.addText("The grim reaper agreed and left the scene. Sarah them immediately extinguished the candle by blowing at it.",220,70);
-        level.addText("Surprisely, even after many years, the Grim Reaper never came again to take Sarah's life.",220,90);
-
-        level.addText("How did Sarah escape her death? Please mark the correct box.",220,130);
+        addTextsToLevel("src\\levels\\level4.txt",level,220,30,20);
 
         level.addButton("Because the Grim Reaper wanted to stay away from candles.",20,true,0,260,600,40);
         level.addButton("Because the Grim Reaper decided that Sarah can live forever.",20,true,0,320,600,40);
@@ -272,7 +252,7 @@ public class MyFrame extends JFrame {
         level.addAnswer(3);
     }
 
-    private void initializeLevel5(){
+    private void initializeLevel5() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         String answer = "59";
@@ -280,10 +260,7 @@ public class MyFrame extends JFrame {
         LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
         panels.add(level);
 
-        level.addText("This question is easier than you think.",220,30);
-        level.addText("How many holes do you see on this page? Please enter the answer below.",220,70);
-        level.addText("Hint: look at every letter you see on the page, which letters has holes in them?",220,90);
-
+        addTextsToLevel("src\\levels\\level5.txt",level,220,30,20);
     }
 
     private void initializeLevel6(){

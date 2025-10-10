@@ -1,0 +1,10 @@
+There are 6 letters which are A,B,C,D,E and F, and your job is to arrange these letters, but you can't",
+just do it your own way, as there are restrictions for each letter.
+A must be on the right side of C and E.
+B cannot lay between D and F.
+C must be directly next to B or D.
+D cannot be directly next to F.
+E must be on the 4th, 5th or 6th place.
+F must be directly next to a vowel.
+
+What are the correct ways to arrange the letters? Please mark the correct boxes below.
