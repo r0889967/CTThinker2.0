@@ -263,7 +263,7 @@ public class MyFrame extends JFrame {
         addTextsToLevel("src\\levels\\level5.txt",level,220,30,20);
     }
 
-    private void initializeLevel6(){
+    private void initializeLevel6() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         String answer = "I am your best friend Sarah and I live in Belgium";
@@ -271,15 +271,10 @@ public class MyFrame extends JFrame {
         LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
         panels.add(level);
 
-        level.addText("The following text has been encrypted using a simple algorithm.",220,30);
-        level.addText("J bn zpvs cftu gsjfoe Tbsbi boe J mjwf jo Cfmhjvn",220,50);
-        level.addText("You need to decrypt this text. Please enter the answer below. (The answer is case-sensitive.)",220,90);
-        level.addText("Hint: look at the text carefully and you should find a pattern",220,110);
-
-
+        addTextsToLevel("src\\levels\\level6.txt",level,220,30,20);
     }
 
-    private void initializeLevel7(){
+    private void initializeLevel7() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         String answer = "Eva Carole Alice Dilan Bob";
@@ -287,23 +282,10 @@ public class MyFrame extends JFrame {
         LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
         panels.add(level);
 
-        level.addText("Alice,Bob,Carole,Dilan and Eva are having a 100m race. Each of them has his or her own strategies.",220,30);
-        level.addText("We will first assume that it will take each runner exactly 1 second to run 1 meter.",220,50);
-        level.addText("Alice runs 1 meter and then stops for 1 second.",220,70);
-        level.addText("Bob runs 5 meters and then stops for 10 seconds.",220,90);
-        level.addText("Carole runs 3 meters and then stops for 2 seconds.",220,110);
-        level.addText("Dilan runs 50 meters and then stops for 75 seconds.",220,130);
-        level.addText("Eva runs 10 meters and then stops for 5 seconds.",220,150);
-        level.addText("Each runner will repeat their strategies during the entire race.",220,170);
-
-        level.addText("In what order will the runners reach the finish? Please enter the answer below.",220,210);
-        level.addText("List their names from left to right with the left most being 1st and right most being last.",220,230);
-        level.addText("Use a single space to seperate the names, each name must begin with capital, and do not put multiple spaces between names.",220,250);
-
-
+        addTextsToLevel("src\\levels\\level7.txt",level,220,30,20);
     }
 
-    private void initializeLevel8(){
+    private void initializeLevel8() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
@@ -311,12 +293,7 @@ public class MyFrame extends JFrame {
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         panels.add(level);
 
-        level.addText("An confident man and a snail decided to have a very long race, the one who reaches the finish first wins.",220,30);
-        level.addText("When the race started, the man was already gone while the snail was just crawling slowly.",220,50);
-        level.addText("The man was very confident that he will win but once he reaches the finish, the snail was already there",220,70);
-        level.addText("The man couldn't believe that he lost",220,90);
-
-        level.addText("What are the possible and reasonable causes that made the slow snail beat the fast man? Please mark the correct boxes.",220,130);
+        addTextsToLevel("src\\levels\\level8.txt",level,220,30,20);
 
         level.addButton("The snail was a super-snail that can go very fast.",20,true,0,260,700,40);
         level.addButton("The man got overconfident and thus decided to sleep for many hours during the race, allowing the snail to win.",20,true,0,320,700,40);
@@ -329,7 +306,7 @@ public class MyFrame extends JFrame {
         level.addAnswer(4);
     }
 
-    private void initializeLevel9(){
+    private void initializeLevel9() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
@@ -337,9 +314,7 @@ public class MyFrame extends JFrame {
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         panels.add(level);
 
-        level.addText("Below we have a bunch of words, all relating to fruits, except for one word.",220,30);
-        level.addText("Can you spot the odd words? Please mark the correct boxes.",220,70);
-        level.addText("Hint: think carefully, a word can have multiple meanings.",220,90);
+        addTextsToLevel("src\\levels\\level9.txt",level,220,30,20);
 
         level.addButton("apple",20,true,0,260,100,40);
         level.addButton("pear",20,true,120,260,100,40);
