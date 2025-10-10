@@ -28,12 +28,24 @@ public class LevelPanelTypeA extends MyPanel{
         this.answers.add(answerIdx);
     }
 
+    public void reset(){
+        for (MyRect button : this.buttons) {
+            if (button.isMarked()) {
+                button.toggleMarked();
+            }
+        }
+    }
+
+
     @Override
     public void paint(Graphics g){
         super.paint(g);
         if(isAnswerCorrect()){
             MyString correctAnswer = new MyString(Color.green,"The answer is correct, you may proceed to the next level.",30,300,730);
             correctAnswer.draw(g);
+        }else{
+            g.setColor(Color.black);
+            g.fillRect(1050,700,150,60);
         }
     }
 

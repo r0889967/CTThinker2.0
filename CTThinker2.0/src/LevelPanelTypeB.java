@@ -15,12 +15,19 @@ public class LevelPanelTypeB extends MyPanel {
         return buttons.get(2).getText().equals(answer);
     }
 
+    public void reset(){
+        buttons.get(2).setText("");
+    }
+
     @Override
     public void paint(Graphics g){
         super.paint(g);
         if(isAnswerCorrect()){
             MyString correctAnswer = new MyString(Color.green,"The answer is correct, you may proceed to the next level.",30,300,730);
             correctAnswer.draw(g);
+        }else{
+            g.setColor(Color.black);
+            g.fillRect(1050,700,150,60);
         }
     }
 }

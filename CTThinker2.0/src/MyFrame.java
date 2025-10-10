@@ -30,7 +30,7 @@ public class MyFrame extends JFrame {
     }
 
 
-    public void initializeHomeScreen() {
+    private void initializeHomeScreen() {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         panel = new MyPanel(buttons,texts);
@@ -47,7 +47,7 @@ public class MyFrame extends JFrame {
         this.add(panel);
     }
 
-    public void initializeInfoScreen(){
+    private void initializeInfoScreen(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         MyPanel infoPanel = new MyPanel(buttons,texts);
@@ -66,7 +66,7 @@ public class MyFrame extends JFrame {
 
     }
 
-    public void initializeLevelSelectionScreen() {
+    private void initializeLevelSelectionScreen() {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         MyPanel levelSelectionPanel = new MyPanel(buttons,texts);
@@ -96,17 +96,19 @@ public class MyFrame extends JFrame {
         }
     }
 
-    public void initializeLevelBaseElemsA(ArrayList<MyRect> buttons, ArrayList<MyString> texts) {
-        MyRect exitButton = new MyRect(Color.red,"Exit level",30,
-                0,700,150,60,()->switchPanel(panels.get(2)));
-        buttons.add(exitButton);
-
+    private void initializeLevelBaseElemsA(ArrayList<MyRect> buttons, ArrayList<MyString> texts) {
         int next = levelNumber+3;
+
+        MyRect exitButton = new MyRect(Color.red,"Exit level",30,
+                0,700,150,60,()->{switchPanel(panels.get(2));
+                                                     panels.get(next-1).reset();});
+        buttons.add(exitButton);
 
         MyRect nextLevelButton = new MyRect(Color.green,"Next level",30,
                 1050,700,150,60,()->{
             if(panels.get(next-1).isAnswerCorrect()){
                 switchPanel(panels.get(next));
+                panels.get(next-1).reset();
             }
         });
 
@@ -116,17 +118,19 @@ public class MyFrame extends JFrame {
         texts.add(levelName);
     }
 
-    public void initializeLevelBaseElemsB(ArrayList<MyRect> buttons, ArrayList<MyString> texts) {
-        MyRect exitButton = new MyRect(Color.red,"Exit level",30,
-                0,700,150,60,()->switchPanel(panels.get(2)));
-        buttons.add(exitButton);
-
+    private void initializeLevelBaseElemsB(ArrayList<MyRect> buttons, ArrayList<MyString> texts) {
         int next = levelNumber+3;
+
+        MyRect exitButton = new MyRect(Color.red,"Exit level",30,
+                0,700,150,60,()->{switchPanel(panels.get(2));
+            panels.get(next-1).reset();});
+        buttons.add(exitButton);
 
         MyRect nextLevelButton = new MyRect(Color.green,"Next level",30,
                 1050,700,150,60,()->{
             if(panels.get(next-1).isAnswerCorrect()){
                 switchPanel(panels.get(next));
+                panels.get(next-1).reset();
             }
         });
 
@@ -138,8 +142,8 @@ public class MyFrame extends JFrame {
         MyString levelName = new MyString("Level "+levelNumber++,75,0,75);
         texts.add(levelName);
     }
-    
-    public void initializeLevel1(){
+
+    private void initializeLevel1(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
@@ -184,7 +188,7 @@ public class MyFrame extends JFrame {
         level.addAnswer(7);
     }
 
-    public void initializeLevel2(){
+    private void initializeLevel2(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
@@ -222,7 +226,7 @@ public class MyFrame extends JFrame {
         level.addAnswer(9);
     }
 
-    public void initializeLevel3(){
+    private void initializeLevel3(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
@@ -245,7 +249,7 @@ public class MyFrame extends JFrame {
         level.addAnswer(2);
     }
 
-    public void initializeLevel4(){
+    private void initializeLevel4(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
@@ -270,7 +274,7 @@ public class MyFrame extends JFrame {
         level.addAnswer(3);
     }
 
-    public void initializeLevel5(){
+    private void initializeLevel5(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         String answer = "59";
@@ -284,7 +288,7 @@ public class MyFrame extends JFrame {
 
     }
 
-    public void initializeLevel6(){
+    private void initializeLevel6(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         String answer = "I am your best friend Sarah and I live in Belgium";
@@ -300,7 +304,7 @@ public class MyFrame extends JFrame {
 
     }
 
-    public void initializeLevel7(){
+    private void initializeLevel7(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         String answer = "Eva Carole Alice Dilan Bob";
@@ -324,27 +328,59 @@ public class MyFrame extends JFrame {
 
     }
 
-    public void initializeLevel8(){
+    private void initializeLevel8(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
-
+        ArrayList<Integer> answers = new ArrayList<>();
         initializeLevelBaseElemsA(buttons,texts);
-
-        MyPanel level = new MyPanel(buttons,texts);
+        LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         panels.add(level);
+
+        level.addText("An confident man and a snail decided to have a very long race, the one who reaches the finish first wins.",220,30);
+        level.addText("When the race started, the man was already gone while the snail was just crawling slowly.",220,50);
+        level.addText("The man was very confident that he will win but once he reaches the finish, the snail was already there",220,70);
+        level.addText("The man couldn't believe that he lost",220,90);
+
+        level.addText("What are the possible and reasonable causes that made the slow snail beat the fast man? Please mark the correct boxes.",220,130);
+
+        level.addButton("The snail was a super-snail that can go very fast.",20,true,0,260,700,40);
+        level.addButton("The man got overconfident and thus decided to sleep for many hours during the race, allowing the snail to win.",20,true,0,320,700,40);
+        level.addButton("The snail had asked an identical looking snail to deploy itself at the finish line beforehand, creating the illusion that the snail won.",20,true,0,380,700,40);
+        level.addButton("The snail had learned to teleport",20,true,0,440,700,40);
+        level.addButton("The man might had faced some unforeseen circumstances during the race, causing him to lose.",20,true,0,500,700,40);
+
+        level.addAnswer(1);
+        level.addAnswer(2);
+        level.addAnswer(4);
     }
 
-    public void initializeLevel9(){
+    private void initializeLevel9(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
-
+        ArrayList<Integer> answers = new ArrayList<>();
         initializeLevelBaseElemsA(buttons,texts);
-
-        MyPanel level = new MyPanel(buttons,texts);
+        LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         panels.add(level);
+
+        level.addText("Below we have a bunch of words, all relating to fruits, except for one word.",220,30);
+        level.addText("Can you spot the odd words? Please mark the correct boxes.",220,70);
+        level.addText("Hint: think carefully, a word can have multiple meanings.",220,90);
+
+        level.addButton("apple",20,true,0,260,100,40);
+        level.addButton("pear",20,true,120,260,100,40);
+        level.addButton("watermelon",20,true,240,260,100,40);
+        level.addButton("kiwi",20,true,360,260,100,40);
+        level.addButton("cherry",20,true,480,260,100,40);
+        level.addButton("peach",20,true,600,260,100,40);
+        level.addButton("strawberry",20,true,720,260,100,40);
+        level.addButton("orange",20,true,840,260,100,40);
+        level.addButton("banana",20,true,960,260,100,40);
+
+        level.addAnswer(3);
+        level.addAnswer(7);
     }
 
-    public void initializeLevel10(){
+    private void initializeLevel10(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
 

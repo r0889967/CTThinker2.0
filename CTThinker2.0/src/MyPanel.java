@@ -46,6 +46,10 @@ public class MyPanel extends JPanel {
         this.buttons.add(new MyRect(text,textSize,x,y,width,height));
     }
 
+    public void reset(){
+
+    }
+
     public boolean isAnswerCorrect() {
         return true;
     }
