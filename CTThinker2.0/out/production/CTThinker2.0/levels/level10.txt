@@ -1,0 +1,2 @@
+Inside a factory there are 6 machines A,B,C,D,E and F that must be started up. But some machines can only be started up 
+if others has already been started up.

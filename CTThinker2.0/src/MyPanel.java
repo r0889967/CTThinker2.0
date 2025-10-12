@@ -42,6 +42,10 @@ public class MyPanel extends JPanel {
         this.buttons.add(new MyRect(text,textSize,markable,x,y,width,height));
     }
 
+    public void addButton(String text,int textSize,int x, int y, boolean dragable,int width, int height){
+        this.buttons.add(new MyRect(text,textSize,x,y,dragable,width,height));
+    }
+
     public void addButton(String text,int textSize,int x, int y, int width, int height){
         this.buttons.add(new MyRect(text,textSize,x,y,width,height));
     }

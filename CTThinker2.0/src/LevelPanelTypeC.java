@@ -1,25 +1,29 @@
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class LevelPanelTypeB extends MyPanel {
-    private String answer;
+public class LevelPanelTypeC extends MyPanel{
+    private ArrayList<Integer> answer;
 
-    LevelPanelTypeB(ArrayList<MyRect> buttons, ArrayList<MyString> texts, String answer) {
+
+    LevelPanelTypeC(ArrayList<MyRect> buttons, ArrayList<MyString> texts, ArrayList<Integer> answer) {
         super(buttons, texts);
         this.answer = answer;
-        this.addKeyListener(new MyKeyListener(this,buttons.get(2)));
     }
 
     public boolean isAnswerCorrect() {
-        return buttons.get(2).getText().equals(answer);
+        for(int i = 3; i < answer.size(); i++) {
+            if(buttons.get(i).getX()<buttons.get(i-1).getX()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void reset(){
-        buttons.get(2).setText("");
+
     }
 
-    public void addAnswer(String answer) {
+    public void addAnswer(ArrayList<Integer> answer) {
         this.answer = answer;
     }
 

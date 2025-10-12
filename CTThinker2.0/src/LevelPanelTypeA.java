@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class LevelPanelTypeA extends MyPanel{
-    private ArrayList<Integer> answers = new ArrayList<>();
+    private final ArrayList<Integer> answers;
 
     LevelPanelTypeA(ArrayList<MyRect> buttons, ArrayList<MyString> texts, ArrayList<Integer> answers) {
         super(buttons, texts);

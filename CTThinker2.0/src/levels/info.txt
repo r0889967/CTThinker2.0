@@ -1,0 +1,7 @@
+CTThinker2.0 is a tool to teach students important CT skills.
+There are in total 5 modules with 15 levels each.
+Module 1 focuses on abstraction: identifying relevant information in a problem.
+Module 2 focuses on decomposition: dividing a problem into multiple subproblems.
+Module 3 focuses on pattern regonization: finding structures or similarities between problems.
+Module 4 focuses on algorithmic thinking: constructing a systematic way of solving a problem.
+Module 5 combines the 4 previous aspects together, fostering CT skills.
