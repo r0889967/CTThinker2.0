@@ -12,7 +12,7 @@ public class LevelPanelTypeC extends MyPanel{
 
     public boolean isAnswerCorrect() {
         for(int i = 3; i < answer.size(); i++) {
-            if(buttons.get(i).getX()<buttons.get(i-1).getX()) {
+            if(buttons.get(answer.get(i-2)).getX()<buttons.get(answer.get(i-3)).getX()) {
                 return false;
             }
         }
@@ -23,8 +23,14 @@ public class LevelPanelTypeC extends MyPanel{
 
     }
 
-    public void addAnswer(ArrayList<Integer> answer) {
-        this.answer = answer;
+    public void addAnswer(int index,int buttonSeqNum) {
+        int n = answer.size();
+        if(n<index){
+            answer.add(n,buttonSeqNum);
+        }else{
+            answer.add(index,buttonSeqNum);
+        }
+        System.out.println(answer);
     }
 
     @Override
