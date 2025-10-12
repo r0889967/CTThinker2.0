@@ -129,6 +129,18 @@ public class MyRect {
         if (dragable) {
             x = newx - 35;
             y = newy - 35;
+            if (x<0){
+                x = 0;
+            }
+            if(x>1200-width){
+                x = 1200-width;
+            }
+            if (y<0){
+                y = 0;
+            }
+            if(y>800-height){
+                y = 800-height;
+            }
         }
     }
 

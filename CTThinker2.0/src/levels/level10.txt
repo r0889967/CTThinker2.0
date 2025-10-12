@@ -3,7 +3,7 @@ others has already been started up.
 C can be started up right away.
 F can be started only if C has started.
 B can be started only if A and D has started.
-D can be started only if B and E has started.
+D can be started only if F and E has started.
 E can be started only if A has started.
 A can be started only if F has started.
 

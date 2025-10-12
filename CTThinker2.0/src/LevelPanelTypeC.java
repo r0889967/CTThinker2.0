@@ -11,8 +11,10 @@ public class LevelPanelTypeC extends MyPanel{
     }
 
     public boolean isAnswerCorrect() {
-        for(int i = 3; i < answer.size(); i++) {
-            if(buttons.get(answer.get(i-2)).getX()<buttons.get(answer.get(i-3)).getX()) {
+        for(int i = 1; i < answer.size(); i++) {
+            System.out.println(answer.size());
+            if(buttons.get(answer.get(i)+2).getX()<buttons.get(answer.get(i-1)+2).getX()) {
+                System.out.println(i);
                 return false;
             }
         }
@@ -20,17 +22,10 @@ public class LevelPanelTypeC extends MyPanel{
     }
 
     public void reset(){
-
     }
 
-    public void addAnswer(int index,int buttonSeqNum) {
-        int n = answer.size();
-        if(n<index){
-            answer.add(n,buttonSeqNum);
-        }else{
-            answer.add(index,buttonSeqNum);
-        }
-        System.out.println(answer);
+    public void addAnswer(int buttonSeqNum) {
+        answer.add(buttonSeqNum);
     }
 
     @Override
