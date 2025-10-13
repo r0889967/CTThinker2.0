@@ -54,6 +54,32 @@ public class LevelPanelTypeA extends LevelPanel{
         }
     }
 
+    public void addOptionButtonsToLevelCustom(String path) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner scanner = new Scanner(file);
+        String text = "";
+        int i = 0;
+        while (scanner.hasNextLine()) {
+            text = scanner.nextLine();
+            String[] text_splits = text.split("-");
+            Color color;
+            if(text_splits[1].equals("g")){
+                color = Color.lightGray;
+            }else{
+                color = Color.white;
+            }
+            if (text_splits[0].charAt(text_splits[0].length()-1)=='*') {
+                this.addButton(color,text_splits[0].substring(0,text_splits[0].length()-1), Integer.parseInt(text_splits[2]), true,
+                        Integer.parseInt(text_splits[3]), Integer.parseInt(text_splits[4]), Integer.parseInt(text_splits[5]), Integer.parseInt(text_splits[6]));
+                this.addAnswer(i);
+            }else{
+                this.addButton(color,text_splits[0], Integer.parseInt(text_splits[2]), true,
+                        Integer.parseInt(text_splits[3]), Integer.parseInt(text_splits[4]), Integer.parseInt(text_splits[5]), Integer.parseInt(text_splits[6]));
+            }
+            i++;
+        }
+    }
+
     public boolean isAnswerCorrect() {
         for (int i=2;i<this.buttons.size();i++) {
             if (buttons.get(i).isMarked()) {

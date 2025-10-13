@@ -166,16 +166,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level3.txt",20,220,30,20);
-
-
-        level.addButton("1",20,true,0,260,100,40);
-        level.addButton("2",20,true,120,260,100,40);
-        level.addButton(Color.white,"3",75,true,190,0,100,75);
-        level.addButton("4",20,true,240,260,100,40);
-        level.addButton("5",20,true,360,260,100,40);
-        level.addButton("6",20,true,480,260,100,40);
-
-        level.addAnswer(2);
+        level.addOptionButtonsToLevelCustom("src\\levels\\level3b.txt");
     }
 
     private void initializeLevel4() throws FileNotFoundException {
