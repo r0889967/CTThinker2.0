@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MyPanel extends JPanel {
     protected final ArrayList<MyRect> buttons;
@@ -14,8 +17,6 @@ public class MyPanel extends JPanel {
         this.texts = texts;
         this.setFocusable(true);
         this.addMouseListener(new MyMouseListener(this,buttons));
-        this.addMouseMotionListener(new MyMouseMotionListener(this,buttons));
-
     }
 
     public void addText(Color color,String text,int textSize,int x,int y){
@@ -30,24 +31,24 @@ public class MyPanel extends JPanel {
         this.texts.add(new MyString(text,x,y));
     }
 
+    public void addTextsToLevel(String path,int textsize,int x_offset,int y_offset,int spacing) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner scanner = new Scanner(file);
+        String text = "";
+        int i = 0;
+        while (scanner.hasNextLine()) {
+            text = scanner.nextLine();
+            this.addText(text,textsize,x_offset,y_offset+i*spacing);
+            i++;
+        }
+    }
+
     public void addButton(Color color,String text,int textSize,int x, int y, int width, int height,Runnable function){
         this.buttons.add(new MyRect(color,text,textSize,x,y,width,height,function));
     }
 
     public void addButton(Color color,String text,int textSize,boolean markable,int x, int y, int width, int height){
         this.buttons.add(new MyRect(color,text,textSize,markable,x,y,width,height));
-    }
-
-    public void addButton(String text,int textSize,boolean markable,int x, int y, int width, int height){
-        this.buttons.add(new MyRect(text,textSize,markable,x,y,width,height));
-    }
-
-    public void addButton(String text,int textSize,int x, int y, boolean dragable,int width, int height){
-        this.buttons.add(new MyRect(text,textSize,x,y,dragable,width,height));
-    }
-
-    public void addButton(String text,int textSize,int x, int y, int width, int height){
-        this.buttons.add(new MyRect(text,textSize,x,y,width,height));
     }
 
     public void reset(){

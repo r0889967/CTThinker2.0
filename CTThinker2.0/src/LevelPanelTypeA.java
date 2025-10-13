@@ -1,5 +1,8 @@
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class LevelPanelTypeA extends MyPanel{
     private final ArrayList<Integer> answers;
@@ -7,6 +10,44 @@ public class LevelPanelTypeA extends MyPanel{
     LevelPanelTypeA(ArrayList<MyRect> buttons, ArrayList<MyString> texts, ArrayList<Integer> answers) {
         super(buttons, texts);
         this.answers = answers;
+    }
+
+    public void addButton(String text,int textSize,boolean markable,int x, int y, int width, int height){
+        this.buttons.add(new MyRect(text,textSize,markable,x,y,width,height));
+    }
+
+    public void addOptionButtonsToLevelH(String path, int x_offset, int y_offset, int spacing, int b_width, int b_height) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner scanner = new Scanner(file);
+        String text = "";
+        int i = 0;
+        while (scanner.hasNextLine()) {
+            text = scanner.nextLine();
+            if (text.charAt(text.length()-1)=='*') {
+                this.addButton(text.substring(0,text.length()-1), 20, true, x_offset + i * spacing, y_offset, b_width, b_height);
+                this.addAnswer(i);
+            }else{
+                this.addButton(text, 20, true, x_offset + i * spacing, y_offset, b_width, b_height);
+            }
+            i++;
+        }
+    }
+
+    public void addOptionButtonsToLevelV(String path, int x_offset, int y_offset, int spacing, int b_width, int b_height) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner scanner = new Scanner(file);
+        String text = "";
+        int i = 0;
+        while (scanner.hasNextLine()) {
+            text = scanner.nextLine();
+            if (text.charAt(text.length()-1)=='*') {
+                this.addButton(text.substring(0,text.length()-1), 20, true, x_offset, y_offset+ i * spacing, b_width, b_height);
+                this.addAnswer(i);
+            }else{
+                this.addButton(text, 20, true, x_offset, y_offset+ i * spacing, b_width, b_height);
+            }
+            i++;
+        }
     }
 
     public boolean isAnswerCorrect() {

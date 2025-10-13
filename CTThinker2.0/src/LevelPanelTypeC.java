@@ -1,19 +1,43 @@
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class LevelPanelTypeC extends MyPanel{
-    private ArrayList<Integer> answer;
+    private ArrayList<Integer> correctOrder;
 
 
-    LevelPanelTypeC(ArrayList<MyRect> buttons, ArrayList<MyString> texts, ArrayList<Integer> answer) {
+    LevelPanelTypeC(ArrayList<MyRect> buttons, ArrayList<MyString> texts, ArrayList<Integer> correctOrder) {
         super(buttons, texts);
-        this.answer = answer;
+        this.correctOrder = correctOrder;
+        this.addMouseMotionListener(new MyMouseMotionListener(this,buttons));
+    }
+
+    private void addButton(String text,int textSize,int x, int y, boolean dragable,int width, int height){
+        this.buttons.add(new MyRect(text,textSize,x,y,dragable,width,height));
+    }
+
+    public void addDragableButtonsToLevelH(String path, int x_offset, int y_offset, int spacing, int b_width, int b_height) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner scanner = new Scanner(file);
+        String text = "";
+        int i = 0;
+        ArrayList<Integer> order = new ArrayList<>();
+        while (scanner.hasNextLine()) {
+            text = scanner.nextLine();
+            String[] text_split = text.split("-");
+            this.addButton(text_split[0], 20, x_offset + i * spacing, y_offset,true, b_width, b_height);
+            order.add(Integer.parseInt(text_split[1]));
+            i++;
+        }
+        this.addCorrectOrder(order);
     }
 
     public boolean isAnswerCorrect() {
-        for(int i = 1; i < answer.size(); i++) {
-            System.out.println(answer.size());
-            if(buttons.get(answer.get(i)+2).getX()<buttons.get(answer.get(i-1)+2).getX()) {
+        for(int i = 1; i < correctOrder.size(); i++) {
+            System.out.println(correctOrder.size());
+            if(buttons.get(correctOrder.get(i)+2).getX()<buttons.get(correctOrder.get(i-1)+2).getX()) {
                 System.out.println(i);
                 return false;
             }
@@ -24,8 +48,8 @@ public class LevelPanelTypeC extends MyPanel{
     public void reset(){
     }
 
-    public void addAnswer(int buttonSeqNum) {
-        answer.add(buttonSeqNum);
+    public void addCorrectOrder(ArrayList<Integer> correctOrder) {
+        this.correctOrder = correctOrder;
     }
 
     @Override

@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class LevelPanelTypeB extends MyPanel {
     private String answer;
@@ -19,8 +22,15 @@ public class LevelPanelTypeB extends MyPanel {
         buttons.get(2).setText("");
     }
 
-    public void addAnswer(String answer) {
+    private void addAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public void addSimpleAnswer(String path) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner scanner = new Scanner(file);
+        String text = scanner.nextLine();
+        this.addAnswer(text);
     }
 
     @Override
