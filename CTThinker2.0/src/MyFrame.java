@@ -104,7 +104,13 @@ public class MyFrame extends JFrame {
 
         buttons.add(nextLevelButton);
 
-        MyString levelName = new MyString("Level "+levelNumber++,75,0,75);
+        int size = 75;
+        if (levelNumber>9){
+            size = 60;
+        }
+
+        MyString levelName = new MyString("Level "+levelNumber++,size,0,75);
+
         texts.add(levelName);
     }
 
@@ -129,7 +135,12 @@ public class MyFrame extends JFrame {
         MyRect inputPrompt = new MyRect("",30,0,300,600,50);
         buttons.add(inputPrompt);
 
-        MyString levelName = new MyString("Level "+levelNumber++,75,0,75);
+        int size = 75;
+        if (levelNumber>9){
+            size = 60;
+        }
+
+        MyString levelName = new MyString("Level "+levelNumber++,size,0,75);
         texts.add(levelName);
     }
 
@@ -217,13 +228,13 @@ public class MyFrame extends JFrame {
     private void initializeLevel7() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
-        String answer = "";
-        initializeLevelBaseElemsB(buttons,texts);
-        LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
+        ArrayList<Integer> correctOrder = new ArrayList<>();
+        initializeLevelBaseElemsA(buttons,texts);
+        LevelPanelTypeC level = new LevelPanelTypeC(buttons,texts, correctOrder);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level7.txt",20,220,30,20);
-        level.addSimpleAnswer("src\\levels\\level7b.txt");
+        level.addDragableButtonsToLevelH("src\\levels\\level7b.txt",0,260,120,100,40);
     }
 
     private void initializeLevel8() throws FileNotFoundException {
@@ -274,13 +285,16 @@ public class MyFrame extends JFrame {
         level.addSimpleAnswer("src\\levels\\level11b.txt");
     }
 
-    private void initializeLevel12(){
+    private void initializeLevel12() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
-        ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
-        LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        String answer = "";
+        initializeLevelBaseElemsB(buttons,texts);
+        LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
         panels.add(level);
+
+        level.addTextsToLevel("src\\levels\\level12.txt",20,220,30,20);
+        level.addSimpleAnswer("src\\levels\\level12b.txt");
     }
 
     private void initializeLevel13(){

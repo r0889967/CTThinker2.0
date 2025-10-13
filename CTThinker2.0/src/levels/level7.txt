@@ -7,6 +7,5 @@ Dilan runs 50 meters and then stops for 75 seconds.
 Eva runs 10 meters and then stops for 5 seconds.
 Each runner will repeat their strategies during the entire race.
 
-In what order will the runners reach the finish? Please enter the answer below.
+In what order will the runners reach the finish? 
 List their names from left to right with the left most being 1st and right most being last.
-Use a single space to seperate the names, each name must begin with capital, and do not put multiple spaces between names.

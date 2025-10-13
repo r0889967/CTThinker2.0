@@ -34,7 +34,7 @@ public class MyKeyListener implements KeyListener {
             if(key == ' '){
                 text = text + ' ';
             }
-            else if(Character.isLetterOrDigit(key)) {
+            else if(Character.isLetterOrDigit(key) || ".,?!:;".contains(String.valueOf(key))) {
                 text = text + key;
             }
         }

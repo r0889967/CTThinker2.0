@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class LevelPanelTypeC extends MyPanel{
     private ArrayList<Integer> correctOrder;
+    private ArrayList<int[]> initialPoses = new ArrayList();
 
 
     LevelPanelTypeC(ArrayList<MyRect> buttons, ArrayList<MyString> texts, ArrayList<Integer> correctOrder) {
@@ -28,6 +29,8 @@ public class LevelPanelTypeC extends MyPanel{
             text = scanner.nextLine();
             String[] text_split = text.split("-");
             this.addButton(text_split[0], 20, x_offset + i * spacing, y_offset,true, b_width, b_height);
+            int[] initialPos = {x_offset + i * spacing, y_offset};
+            this.initialPoses.add(initialPos);
             order.add(Integer.parseInt(text_split[1]));
             i++;
         }
@@ -46,6 +49,11 @@ public class LevelPanelTypeC extends MyPanel{
     }
 
     public void reset(){
+        for(int i=2; i < buttons.size(); i++) {
+            int x = initialPoses.get(i-2)[0]+35;
+            int y = initialPoses.get(i-2)[1]+35;
+            buttons.get(i).drag(x,y);
+        }
     }
 
     public void addCorrectOrder(ArrayList<Integer> correctOrder) {
