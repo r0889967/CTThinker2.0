@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LevelPanelTypeA extends MyPanel{
+public class LevelPanelTypeA extends LevelPanel{
     private final ArrayList<Integer> answers;
 
     LevelPanelTypeA(ArrayList<MyRect> buttons, ArrayList<MyString> texts, ArrayList<Integer> answers) {
@@ -14,6 +14,10 @@ public class LevelPanelTypeA extends MyPanel{
 
     public void addButton(String text,int textSize,boolean markable,int x, int y, int width, int height){
         this.buttons.add(new MyRect(text,textSize,markable,x,y,width,height));
+    }
+
+    public void addButton(Color color,String text,int textSize,boolean markable,int x, int y, int width, int height){
+        this.buttons.add(new MyRect(color,text,textSize,markable,x,y,width,height));
     }
 
     public void addOptionButtonsToLevelH(String path, int x_offset, int y_offset, int spacing, int b_width, int b_height) throws FileNotFoundException {
@@ -77,8 +81,6 @@ public class LevelPanelTypeA extends MyPanel{
         }
     }
 
-
-    @Override
     public void paint(Graphics g){
         super.paint(g);
         if(isAnswerCorrect()){

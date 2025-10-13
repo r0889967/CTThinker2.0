@@ -1,16 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LevelPanelTypeB extends MyPanel {
+public class LevelPanelTypeB extends LevelPanel {
     private String answer;
 
     LevelPanelTypeB(ArrayList<MyRect> buttons, ArrayList<MyString> texts, String answer) {
         super(buttons, texts);
         this.answer = answer;
+    }
+
+    public void addMyKeyListener() {
         this.addKeyListener(new MyKeyListener(this,buttons.get(2)));
     }
 
@@ -33,7 +37,6 @@ public class LevelPanelTypeB extends MyPanel {
         this.addAnswer(text);
     }
 
-    @Override
     public void paint(Graphics g){
         super.paint(g);
         if(isAnswerCorrect()){

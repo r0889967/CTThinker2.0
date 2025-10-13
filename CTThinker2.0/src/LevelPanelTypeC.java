@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LevelPanelTypeC extends MyPanel{
+public class LevelPanelTypeC extends LevelPanel{
     private ArrayList<Integer> correctOrder;
     private ArrayList<int[]> initialPoses = new ArrayList();
 
@@ -39,9 +39,10 @@ public class LevelPanelTypeC extends MyPanel{
 
     public boolean isAnswerCorrect() {
         for(int i = 1; i < correctOrder.size(); i++) {
-            System.out.println(correctOrder.size());
-            if(buttons.get(correctOrder.get(i)+2).getX()<buttons.get(correctOrder.get(i-1)+2).getX()) {
-                System.out.println(i);
+            MyRect first = buttons.get(correctOrder.get(i-1)+2);
+            MyRect second = buttons.get(correctOrder.get(i)+2);
+
+            if(second.getX()<first.getX()+ first.getWidth()) {
                 return false;
             }
         }
@@ -50,8 +51,8 @@ public class LevelPanelTypeC extends MyPanel{
 
     public void reset(){
         for(int i=2; i < buttons.size(); i++) {
-            int x = initialPoses.get(i-2)[0]+35;
-            int y = initialPoses.get(i-2)[1]+35;
+            int x = initialPoses.get(i-2)[0]+buttons.get(i).getWidth()/2;
+            int y = initialPoses.get(i-2)[1]+buttons.get(i).getHeight()/2;
             buttons.get(i).drag(x,y);
         }
     }
@@ -60,7 +61,6 @@ public class LevelPanelTypeC extends MyPanel{
         this.correctOrder = correctOrder;
     }
 
-    @Override
     public void paint(Graphics g){
         super.paint(g);
         if(isAnswerCorrect()){

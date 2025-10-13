@@ -1,0 +1,5 @@
+Given the following sequence of numbers.
+2,5,10,17,28,41,58,77,100,129,?
+
+What is the next number in the sequence? Please enter the answer below.
+Hint: it has something to do with prime numbers.

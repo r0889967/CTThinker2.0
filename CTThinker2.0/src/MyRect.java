@@ -127,8 +127,8 @@ public class MyRect {
 
     public void drag(int newx, int newy) {
         if (dragable) {
-            x = newx - 35;
-            y = newy - 35;
+            x = newx - this.width/2;
+            y = newy - this.height/2;
             if (x<0){
                 x = 0;
             }

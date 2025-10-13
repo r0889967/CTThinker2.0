@@ -1,9 +1,7 @@
 import javax.swing.JFrame;
 import java.awt.Color;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class MyFrame extends JFrame {
     private int width = 1200;
@@ -37,7 +35,7 @@ public class MyFrame extends JFrame {
     private void initializeHomeScreen() {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
-        panel = new MyPanel(buttons,texts);
+        panel = new NonLevelPanel(buttons,texts);
         panels.add(panel);
 
         panel.addButton(Color.green,"Start game",30, 500,400,150,60,()->switchPanel(panels.get(2)));
@@ -54,7 +52,7 @@ public class MyFrame extends JFrame {
     private void initializeInfoScreen() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
-        MyPanel infoPanel = new MyPanel(buttons,texts);
+        NonLevelPanel infoPanel = new NonLevelPanel(buttons,texts);
         panels.add(infoPanel);
 
         infoPanel.addButton(Color.orange,"Main menu",30, 0,700,150,60,()->switchPanel(panels.get(0)));
@@ -65,7 +63,7 @@ public class MyFrame extends JFrame {
     private void initializeLevelSelectionScreen() {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
-        MyPanel levelSelectionPanel = new MyPanel(buttons,texts);
+        NonLevelPanel levelSelectionPanel = new NonLevelPanel(buttons,texts);
         panels.add(levelSelectionPanel);
 
         levelSelectionPanel.addButton(Color.orange,"Main menu",30, 0,700,150,60,()->switchPanel(panels.get(0)));
@@ -86,70 +84,61 @@ public class MyFrame extends JFrame {
         }
     }
 
-    private void initializeLevelBaseElemsA(ArrayList<MyRect> buttons, ArrayList<MyString> texts) {
+    private void initializeLevelBaseElemsAC(LevelPanel panel) {
         int next = levelNumber+3;
 
-        MyRect exitButton = new MyRect(Color.red,"Exit level",30,
+        panel.addButton(Color.red,"Exit Level",30,
                 0,700,150,60,()->{switchPanel(panels.get(2));
-                                                     panels.get(next-1).reset();});
-        buttons.add(exitButton);
+                    panel.reset();});
 
-        MyRect nextLevelButton = new MyRect(Color.green,"Next level",30,
+        panel.addButton(Color.green,"Next level",30,
                 1050,700,150,60,()->{
-            if(panels.get(next-1).isAnswerCorrect()){
-                switchPanel(panels.get(next));
-                panels.get(next-1).reset();
-            }
-        });
-
-        buttons.add(nextLevelButton);
+                    if(panel.isAnswerCorrect()){
+                        switchPanel(panels.get(next));
+                        panel.reset();
+                    }
+                });
 
         int size = 75;
         if (levelNumber>9){
             size = 60;
         }
 
-        MyString levelName = new MyString("Level "+levelNumber++,size,0,75);
-
-        texts.add(levelName);
+        panel.addText("Level "+levelNumber++,size,0,75);
     }
 
-    private void initializeLevelBaseElemsB(ArrayList<MyRect> buttons, ArrayList<MyString> texts) {
+    private void initializeLevelBaseElemsB(LevelPanelTypeB panel) {
         int next = levelNumber+3;
 
-        MyRect exitButton = new MyRect(Color.red,"Exit level",30,
+        panel.addButton(Color.red,"Exit Level",30,
                 0,700,150,60,()->{switchPanel(panels.get(2));
-            panels.get(next-1).reset();});
-        buttons.add(exitButton);
+                    panel.reset();});
 
-        MyRect nextLevelButton = new MyRect(Color.green,"Next level",30,
+        panel.addButton(Color.green,"Next level",30,
                 1050,700,150,60,()->{
-            if(panels.get(next-1).isAnswerCorrect()){
-                switchPanel(panels.get(next));
-                panels.get(next-1).reset();
-            }
-        });
+                    if(panel.isAnswerCorrect()){
+                        switchPanel(panels.get(next));
+                        panel.reset();
+                    }
+                });
 
-        buttons.add(nextLevelButton);
-
-        MyRect inputPrompt = new MyRect("",30,0,300,600,50);
-        buttons.add(inputPrompt);
+        panel.addButton(Color.lightGray,"",30,0,300,600,50,()->{});
 
         int size = 75;
         if (levelNumber>9){
             size = 60;
         }
 
-        MyString levelName = new MyString("Level "+levelNumber++,size,0,75);
-        texts.add(levelName);
+        panel.addText("Level "+levelNumber++,size,0,75);
+        panel.addMyKeyListener();
     }
 
     private void initializeLevel1() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level1.txt",20,220,30,20);
@@ -160,8 +149,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level2.txt",20,220,30,20);
@@ -172,8 +161,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level3.txt",20,220,30,20);
@@ -193,8 +182,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level4.txt",20,220,30,20);
@@ -205,8 +194,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         String answer = "";
-        initializeLevelBaseElemsB(buttons,texts);
         LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
+        initializeLevelBaseElemsB(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level5.txt",20,220,30,20);
@@ -217,8 +206,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         String answer = "";
-        initializeLevelBaseElemsB(buttons,texts);
         LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
+        initializeLevelBaseElemsB(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level6.txt",20,220,30,20);
@@ -229,20 +218,20 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> correctOrder = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeC level = new LevelPanelTypeC(buttons,texts, correctOrder);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level7.txt",20,220,30,20);
-        level.addDragableButtonsToLevelH("src\\levels\\level7b.txt",0,260,120,100,40);
+        level.addDragableButtonsToLevelH("src\\levels\\level7b.txt",0,260,120,100,50);
     }
 
     private void initializeLevel8() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level8.txt",20,220,30,20);
@@ -253,8 +242,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level9.txt",20,220,30,20);
@@ -265,8 +254,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> correctOrder = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeC level = new LevelPanelTypeC(buttons,texts, correctOrder);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level10.txt",20,220,30,20);
@@ -277,8 +266,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         String answer = "";
-        initializeLevelBaseElemsB(buttons,texts);
         LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
+        initializeLevelBaseElemsB(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level11.txt",20,220,30,20);
@@ -289,38 +278,44 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         String answer = "";
-        initializeLevelBaseElemsB(buttons,texts);
         LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
+        initializeLevelBaseElemsB(level);
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level12.txt",20,220,30,20);
         level.addSimpleAnswer("src\\levels\\level12b.txt");
     }
 
-    private void initializeLevel13(){
+    private void initializeLevel13() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
-        LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        LevelPanelTypeC level = new LevelPanelTypeC(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
+
+        level.addTextsToLevel("src\\levels\\level13.txt",20,220,30,20);
+        level.addDragableButtonsToLevelH("src\\levels\\level13b.txt",0,260,80,50,50);
     }
 
-    private void initializeLevel14(){
+    private void initializeLevel14() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
-        ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
-        LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        String answer = "";
+        LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
+        initializeLevelBaseElemsB(level);
         panels.add(level);
+
+        level.addTextsToLevel("src\\levels\\level14.txt",20,220,30,20);
+        level.addSimpleAnswer("src\\levels\\level14b.txt");
     }
 
     private void initializeLevel15(){
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
     }
 
@@ -328,8 +323,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
     }
 
@@ -337,8 +332,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
     }
 
@@ -346,8 +341,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
     }
 
@@ -355,8 +350,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
     }
 
@@ -364,8 +359,8 @@ public class MyFrame extends JFrame {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
-        initializeLevelBaseElemsA(buttons,texts);
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
+        initializeLevelBaseElemsAC(level);
         panels.add(level);
     }
 

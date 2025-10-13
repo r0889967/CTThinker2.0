@@ -1,3 +1,4 @@
 Try to guess the secret number based on clues in the text. Between 10 and 99 (both boundaries included), 
 can't be divided by 3,4,5 or 7, the first digit is odd, the sum of the digits is greater than 12, 
 the difference between the first and last digit is less or equal to 2, the first digit is greater than the last digit.
+Hint: try to filter out candidates using the clues.

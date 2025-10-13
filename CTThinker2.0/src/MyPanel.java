@@ -19,16 +19,8 @@ public class MyPanel extends JPanel {
         this.addMouseListener(new MyMouseListener(this,buttons));
     }
 
-    public void addText(Color color,String text,int textSize,int x,int y){
-        this.texts.add(new MyString(color,text,textSize,x,y));
-    }
-
     public void addText(String text,int textSize,int x,int y){
         this.texts.add(new MyString(text,textSize,x,y));
-    }
-
-    public void addText(String text,int x,int y){
-        this.texts.add(new MyString(text,x,y));
     }
 
     public void addTextsToLevel(String path,int textsize,int x_offset,int y_offset,int spacing) throws FileNotFoundException {
@@ -47,19 +39,6 @@ public class MyPanel extends JPanel {
         this.buttons.add(new MyRect(color,text,textSize,x,y,width,height,function));
     }
 
-    public void addButton(Color color,String text,int textSize,boolean markable,int x, int y, int width, int height){
-        this.buttons.add(new MyRect(color,text,textSize,markable,x,y,width,height));
-    }
-
-    public void reset(){
-
-    }
-
-    public boolean isAnswerCorrect() {
-        return true;
-    }
-
-    @Override
     public void paint(Graphics g){
         g.setColor(Color.white);
         g.fillRect(0,0,getWidth(),getHeight());
@@ -71,7 +50,6 @@ public class MyPanel extends JPanel {
         }
     }
 
-    @Override
     public void repaint(){
         super.repaint();
     }

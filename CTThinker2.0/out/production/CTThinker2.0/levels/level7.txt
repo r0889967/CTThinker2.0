@@ -9,3 +9,4 @@ Each runner will repeat their strategies during the entire race.
 
 In what order will the runners reach the finish? 
 List their names from left to right with the left most being 1st and right most being last.
+Hint: try to calculate the average speed of each runner.
