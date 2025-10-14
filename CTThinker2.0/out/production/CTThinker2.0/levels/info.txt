@@ -15,3 +15,5 @@ To enter the answer, first click outside the window, then click inside the windo
 
 In type C levels you will have to drag the boxes into a correct order.
 To drag a box, put the cursor on the box and hold the mouse key, then move it around.
+
+When you get the right answer, a "next level" button will appear to let you go to the next level.
