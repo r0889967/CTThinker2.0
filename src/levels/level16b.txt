@@ -1,7 +1,0 @@
-Send invitations->Prepare food->Decorate garden->Clean garden
-Clean garden->Prepare food->Decorate garden->Send invitations
-Decorate garden->Clean garden->Send invitations->Prepare food
-Clean garden->Decorate Garden->Prepare food->Send invitations*
-Prepare food->Clean garden->Decorate garden->Send invitations
-Decorate garden->Send invitations->Prepare food->Clean garden
-Clean garden->Decorate Garden->Send invitations->Prepare food

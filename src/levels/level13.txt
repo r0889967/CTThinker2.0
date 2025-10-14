@@ -1,8 +1,0 @@
-Sort the numbers from small to large according to the rules below step by step, beginning with the first rule.
-First, sort the numbers by their last digit, numbers with a higher last digit are larger.
-Second, for numbers with the same first digit, numbers with more odd digits are larger.
-Third, for numbers with the same number of odd digits, numbers with a larger sum of its digits are larger.
-Fourth, for numbers with the same sum of its digits, numbers with more digits are larger.
-Fifth, for numbers with the same number of digits, sort them from small to large normally.
-
-Please arrange the boxes in order from left to right.     
