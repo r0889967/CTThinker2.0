@@ -23,6 +23,7 @@ public class MyFrame extends JFrame {
         initializeLevel6();initializeLevel7();initializeLevel8();initializeLevel9();initializeLevel10();
         initializeLevel11();initializeLevel12();initializeLevel13();initializeLevel14();initializeLevel15();
         initializeLevel16();initializeLevel17();initializeLevel18();initializeLevel19();initializeLevel20();
+        initializeEndScreen();
     }
 
     private void switchPanel(MyPanel newPanel) {
@@ -44,7 +45,7 @@ public class MyFrame extends JFrame {
 
         panel.addText("Welcome to CTThinker2.0",75,0,75);
         panel.addText("Great tool to improve your critical thinking skills",30,0,110);
-        panel.addText("Click on the info button for more information",30,0,140);
+        panel.addText("If it's your first time playing, please read the info first.",30,0,140);
 
         this.add(panel);
     }
@@ -57,7 +58,7 @@ public class MyFrame extends JFrame {
 
         infoPanel.addButton(Color.orange,"Main menu",30, 0,700,150,60,()->switchPanel(panels.get(0)));
         infoPanel.addText("Info about this tool",75,0,75);
-        infoPanel.addTextsToLevel("src\\levels\\info.txt",30,0,100,30);
+        infoPanel.addTextsToLevel("src\\levels\\info.txt",20,0,100,20);
     }
 
     private void initializeLevelSelectionScreen() {
@@ -142,7 +143,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level1.txt",20,220,30,20);
-        level.addOptionButtonsToLevelH("src\\levels\\level1b.txt",0,260,130,120,40);
+        level.addOptionButtonsToLevelHorizontal("src\\levels\\level1b.txt",0,260,130,120,40);
     }
 
     private void initializeLevel2() throws FileNotFoundException {
@@ -154,7 +155,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level2.txt",20,220,30,20);
-        level.addOptionButtonsToLevelH("src\\levels\\level2b.txt",0,260,110,100,40);
+        level.addOptionButtonsToLevelHorizontal("src\\levels\\level2b.txt",0,260,110,100,40);
     }
 
     private void initializeLevel3() throws FileNotFoundException {
@@ -178,7 +179,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level4.txt",20,220,30,20);
-        level.addOptionButtonsToLevelV("src\\levels\\level4b.txt",0,260,60,600,40);
+        level.addOptionButtonsToLevelVertical("src\\levels\\level4b.txt",0,260,60,600,40);
     }
 
     private void initializeLevel5() throws FileNotFoundException {
@@ -226,7 +227,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level8.txt",20,220,30,20);
-        level.addOptionButtonsToLevelV("src\\levels\\level8b.txt",0,260,60,700,40);
+        level.addOptionButtonsToLevelVertical("src\\levels\\level8b.txt",0,260,60,700,40);
     }
 
     private void initializeLevel9() throws FileNotFoundException {
@@ -238,7 +239,7 @@ public class MyFrame extends JFrame {
         panels.add(level);
 
         level.addTextsToLevel("src\\levels\\level9.txt",20,220,30,20);
-        level.addOptionButtonsToLevelH("src\\levels\\level9b.txt",0,260,120,100,40);
+        level.addOptionButtonsToLevelHorizontal("src\\levels\\level9b.txt",0,260,120,100,40);
     }
 
     private void initializeLevel10() throws FileNotFoundException {
@@ -301,22 +302,28 @@ public class MyFrame extends JFrame {
         level.addSimpleAnswer("src\\levels\\level14b.txt");
     }
 
-    private void initializeLevel15(){
+    private void initializeLevel15() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         initializeLevelBaseElemsAC(level);
         panels.add(level);
+
+        level.addTextsToLevel("src\\levels\\level15.txt",20,220,30,20);
+        level.addOptionButtonsToLevelVertical("src\\levels\\level15b.txt",0,260,60,600,40);
     }
 
-    private void initializeLevel16(){
+    private void initializeLevel16() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         initializeLevelBaseElemsAC(level);
         panels.add(level);
+
+        level.addTextsToLevel("src\\levels\\level16.txt",20,220,30,20);
+        level.addOptionButtonsToLevelVertical("src\\levels\\level16b.txt",0,260,60,600,40);
     }
 
     private void initializeLevel17(){
@@ -353,6 +360,10 @@ public class MyFrame extends JFrame {
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         initializeLevelBaseElemsAC(level);
         panels.add(level);
+    }
+
+    private void initializeEndScreen(){
+
     }
 
 

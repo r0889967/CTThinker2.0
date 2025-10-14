@@ -20,7 +20,7 @@ public class LevelPanelTypeA extends LevelPanel{
         this.buttons.add(new MyRect(color,text,textSize,markable,x,y,width,height));
     }
 
-    public void addOptionButtonsToLevelH(String path, int x_offset, int y_offset, int spacing, int b_width, int b_height) throws FileNotFoundException {
+    public void addOptionButtonsToLevelHorizontal(String path, int x_offset, int y_offset, int spacing, int b_width, int b_height) throws FileNotFoundException {
         File file = new File(path);
         Scanner scanner = new Scanner(file);
         String text = "";
@@ -37,7 +37,7 @@ public class LevelPanelTypeA extends LevelPanel{
         }
     }
 
-    public void addOptionButtonsToLevelV(String path, int x_offset, int y_offset, int spacing, int b_width, int b_height) throws FileNotFoundException {
+    public void addOptionButtonsToLevelVertical(String path, int x_offset, int y_offset, int spacing, int b_width, int b_height) throws FileNotFoundException {
         File file = new File(path);
         Scanner scanner = new Scanner(file);
         String text = "";

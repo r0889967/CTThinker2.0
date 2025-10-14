@@ -15,12 +15,13 @@ public class MyMouseMotionListener implements MouseMotionListener {
     private void selectButton(int mx,int my){
         if(buttons.isEmpty()) return;
         button = buttons.getFirst();
-        int dist = Math.abs(mx- button.getX())+Math.abs(my- button.getY());
+        int dist = Math.abs(mx- button.getX()-button.getWidth()/2)+Math.abs(my- button.getY()-button.getHeight()/2);
 
         for (MyRect other: buttons) {
-            if(Math.abs(mx- other.getX())+Math.abs(my- other.getY())<dist){
+            int otherDist = Math.abs(mx- other.getX()- other.getWidth()/2)+Math.abs(my- other.getY()- other.getHeight()/2);
+            if(otherDist<dist){
                 button = other;
-                dist = Math.abs(mx-other.getX())+Math.abs(my-other.getY());
+                dist = otherDist;
             }
         }
     }

@@ -1,5 +1,4 @@
-Given the following sequence of numbers.
-2,5,10,17,28,41,58,77,100,129,?
+What‘s the answer of a question that has "no answer" as the answer?
 
-What is the next number in the sequence? Please enter the answer below.
-Hint: it has something to do with prime numbers.
+Please mark the correct box.
+Hint: why are there quotations marks?

@@ -1,7 +1,17 @@
 CTThinker2.0 is a tool to teach students important CT skills.
 There are in total 5 modules with 15 levels each.
 Module 1 focuses on abstraction: identifying relevant information in a problem.
-Module 2 focuses on decomposition: dividing a problem into multiple subproblems.
+Module 2 focuses on decomposition: dividing a problem into multiple subproblems that are easier to solve.
 Module 3 focuses on pattern regonization: finding structures or similarities between problems.
 Module 4 focuses on algorithmic thinking: constructing a systematic way of solving a problem.
 Module 5 combines the 4 previous aspects together, fostering CT skills.
+
+There are 3 types of levels.
+In type A levels you will have select all answers from a given set of boxes.
+To mark a box, click it with your mouse once, click it again to unmark it.
+
+In type B levels you will have to enter the answer yourself inside a box.
+To enter the answer, first click outside the window, then click inside the window, and lastly enter the answer with keyboard.
+
+In type C levels you will have to drag the boxes into a correct order.
+To drag a box, put the cursor on the box and hold the mouse key, then move it around.
