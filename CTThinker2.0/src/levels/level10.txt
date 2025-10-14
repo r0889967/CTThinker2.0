@@ -1,10 +1,6 @@
-Inside a factory there are 6 machines A,B,C,D,E and F that must be started. But some machines can only be started if 
-others has already been started up.
-C can be started up right away.
-F can be started only if C has started.
-B can be started only if A and D has started.
-D can be started only if F and E has started.
-E can be started only if A has started.
-A can be started only if F has started.
+Study this mess of letters below carefully.
+knelybaeblewtodillehgcwreuer
 
-In what order do the machines have to be started? Please arrange the boxes in order from left to right.
+Please list the 6 words that are part of this mess of letters alphabetically from left to right.
+Use a single space to separate the words and don't use capitals.
+Hint: try to pick letters from the mess to form words yourself and it should be easy.

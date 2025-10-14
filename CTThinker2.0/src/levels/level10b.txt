@@ -1,6 +1,1 @@
-E-2
-F-1
-C-5
-B-0
-D-4
-A-3
+black blue green red white yellow

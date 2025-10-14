@@ -113,7 +113,7 @@ public class LevelPanelTypeA extends LevelPanel{
             MyString correctAnswer = new MyString(Color.green,"The answer is correct, you may proceed to the next level.",30,300,730);
             correctAnswer.draw(g);
         }else{
-            g.setColor(Color.black);
+            g.setColor(Color.white);
             g.fillRect(1050,700,150,60);
         }
     }
