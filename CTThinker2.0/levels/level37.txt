@@ -1,0 +1,5 @@
+Below are a few numbers, please rearrange them to form a pattern.
+The sequence should begin with the smallest number first.
+Hint: the pattern contains all 4 basic math operations.
+
+     

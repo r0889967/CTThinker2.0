@@ -1,0 +1,3 @@
+Give C lamp->B and C walk over->C returns->Give A lamp->A and D walk over->A returns->A and E walk over*
+Give A lamp->A and B walk over->A returns->A and C walk over->A returns->A and E walk over->A returns->A and D walk over
+Give C lamp->B and C walk over->C returns->Give A lamp->A and E walk over->A returns->A and D walk over*
