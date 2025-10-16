@@ -1,7 +1,0 @@
-Given the following sequence of strings.
-a, abb, cccabb, cccabbdddd, eeeeecccabbdddd, ?
-
-What is the next string in the sequence? Please enter the answer below.
-
-
-     

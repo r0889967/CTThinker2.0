@@ -1,9 +1,0 @@
-There are 5 persons A,B,C,D and E who need to walk over a thin log above a cliff during the dark night.
-Since it's dark, they need a pocket lamp to see, without the pocket lamp one will fall from the log and die.
-There is only a single pocket lamp and its batteries only lasts for 90 seconds, anyone can hold the pocket lamp.
-The log can only hold the weight of at most 2 persons, or else it will break. It will take A 5 seconds to cross,
-B 50 seconds, C 20 seconds, D 7 seconds and E 8 seconds.
-
-How can they all walk over the cliff before the battery of their pocket lamp dies? 
-Please mark the correct boxes.
-

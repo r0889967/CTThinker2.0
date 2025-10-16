@@ -1,7 +1,0 @@
-Given the following sequence of numbers.
-5738, 121011, 33112, 6423, 1065, ?
-
-What is the next number in the sequence? Please enter the answer below.
-
-
-     
