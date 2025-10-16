@@ -1,5 +1,7 @@
-The following text has been encrypted using a simple algorithm.
-J bn zpvs cftu gsjfoe Tbsbi boe J mjwf jo Cfmhjvn
+Sarah put a beautiful vase on a table touching the front door of her home. She then invited her friends Alice, Bob, Carole,
+Dilan and Eva to come and play with her inside her bedroom. The 5 friends all came rushing into her home through the 
+front door. When night came, her friends left once again. But when Sarah woke up and went downstairs the next morning, she 
+found her vase broken on the ground. Sarah suspect that her friends might have broken her vase yesterday by accident.
 
-You need to decrypt this text. Please enter the answer below. (The answer is case-sensitive.)
-Hint: look at the text carefully and you should find a pattern。
+Which of Sarah's friends might be the culprit? Please mark all the correct boxes.
+Hint: all of Sarah's friends entered through the front door, what could this imply?
