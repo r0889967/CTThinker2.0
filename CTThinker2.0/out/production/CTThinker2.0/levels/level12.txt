@@ -1,7 +1,9 @@
-The following text has been scrambled, and you have to bring it back into the correct order.
-y? oDe uaml tpleymk oiga nihsi
+Alice, Bob and Carole are playing a game called "guess the cards", where Alice have 3 cards in her hand and she is
+not allowed to show her cards directly to Bob or Carole, Alice have to try her best to give Bob hints about her 
+cards but must be aware of Carole, who might also use the hints to know Alice's cards. After giving the hints,
+Bob and Carole must try to guess all of Sarah's cards. If Bob got all cards correct and Carole got at least one
+card wrong, Alice and Bob will win, but if Carole got all cards correct, she will win regardless of how many cards
+Bob got correct. Carole has sharp ears and eyes, can easily identify any subtle details, can speak a lot of foreign 
+languages and she has a device to intercept and decrypt any calls and messages between Alice and Bob.
 
-Please enter the answer below. (The answer is case-sensitive.)
-Hint: look at the scrambled text carefully and find out what words are in the text.
-
-     
+What will be the best way for Sarah to give hints to Bob without giving Carole too much information?

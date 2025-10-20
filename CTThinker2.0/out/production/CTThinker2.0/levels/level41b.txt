@@ -1,0 +1,5 @@
+greatest digit-4
+/5-3
+x10-2
+sum of digits-1
+x7-0

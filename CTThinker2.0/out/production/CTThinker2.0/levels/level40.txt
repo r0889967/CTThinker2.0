@@ -1,0 +1,4 @@
+Given the following sequence of numbers.
+27, 9279, 27927927, ?
+
+What is the next number in the sequence? Please enter the answer below.

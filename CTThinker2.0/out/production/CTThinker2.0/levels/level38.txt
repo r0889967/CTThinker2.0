@@ -1,0 +1,5 @@
+The following text has been encrypted using a simple algorithm.
+w Isia hll fo oyg uool dcui ky nuol rfie
+
+You need to decrypt this text. Please enter the answer below. (The answer is case-sensitive.)
+Hint: look at the text carefully and you should find a pattern.
