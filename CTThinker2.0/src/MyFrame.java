@@ -27,6 +27,7 @@ public class MyFrame extends JFrame {
         initializeLevel26();initializeLevel27();initializeLevel28();initializeLevel29();initializeLevel30();
         initializeLevel31();initializeLevel32();initializeLevel33();initializeLevel34();initializeLevel35();
         initializeLevel36();initializeLevel37();initializeLevel38();initializeLevel39();initializeLevel40();
+        initializeLevel41();initializeLevel42();initializeLevel43();initializeLevel44();initializeLevel45();
         initializeEndScreen();
     }
 
@@ -559,22 +560,79 @@ public class MyFrame extends JFrame {
         level.addSimpleAnswer("src\\levels\\level38b.txt");
     }
 
-    private void initializeLevel39(){
+    private void initializeLevel39() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         initializeLevelBaseElemsAC(level);
         panels.add(level);
+
+        level.addTextsToLevel("src\\levels\\level39.txt",20,220,30,20);
+        level.addOptionButtonsToLevelVertical("src\\levels\\level39b.txt",0,260,60,600,40);
     }
 
-    private void initializeLevel40(){
+    private void initializeLevel40() throws FileNotFoundException {
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+        String answer = "";
+        LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
+        initializeLevelBaseElemsB(level);
+        panels.add(level);
+
+        level.addTextsToLevel("src\\levels\\level40.txt",20,220,30,20);
+        level.addSimpleAnswer("src\\levels\\level40b.txt");
+    }
+
+    private void initializeLevel41() throws FileNotFoundException {
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+        ArrayList<Integer> correctOrder = new ArrayList<>();
+        LevelPanelTypeC level = new LevelPanelTypeC(buttons,texts, correctOrder);
+        initializeLevelBaseElemsAC(level);
+        panels.add(level);
+
+        level.addTextsToLevel("src\\levels\\level41.txt",20,220,30,20);
+        level.addDragableButtonsToLevelH("src\\levels\\level41b.txt",0,260,120,110,50);
+    }
+
+    private void initializeLevel42() throws FileNotFoundException {
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+        String answer = "";
+        LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
+        initializeLevelBaseElemsB(level);
+        panels.add(level);
+
+        level.addTextsToLevel("src\\levels\\level42.txt",20,220,30,20);
+        level.addSimpleAnswer("src\\levels\\level42b.txt");
+    }
+
+    private void initializeLevel43() throws FileNotFoundException {
+        ArrayList<MyRect> buttons = new ArrayList<>();
+        ArrayList<MyString> texts = new ArrayList<>();
+        String answer = "";
+        LevelPanelTypeB level = new LevelPanelTypeB(buttons,texts, answer);
+        initializeLevelBaseElemsB(level);
+        panels.add(level);
+
+        level.addTextsToLevel("src\\levels\\level43.txt",20,220,30,20);
+        level.addSimpleAnswer("src\\levels\\level43b.txt");
+    }
+
+    private void initializeLevel44() throws FileNotFoundException {
         ArrayList<MyRect> buttons = new ArrayList<>();
         ArrayList<MyString> texts = new ArrayList<>();
         ArrayList<Integer> answers = new ArrayList<>();
         LevelPanelTypeA level = new LevelPanelTypeA(buttons,texts, answers);
         initializeLevelBaseElemsAC(level);
         panels.add(level);
+
+        level.addTextsToLevel("src\\levels\\level44.txt",20,220,30,20);
+        level.addOptionButtonsToLevelVertical("src\\levels\\level44b.txt",0,220,60,600,40);
+    }
+
+    private void initializeLevel45(){
     }
 
     private void initializeEndScreen(){

@@ -1,0 +1,8 @@
+a,ab,abe,abec,abeci,abecid,abecido
+abab,cbcb,cdcd,eded,efef,gfgf
+a,bbbb,cc,ddddddd,eeee,fffff,gggggg*
+a,bab,cbabc,dcbabcd,dcbabcdee*
+aaa,aab,abb,bbb,bbc,bcc,ccc,ccd
+a,b,c,d,e,f,g,h,j,i,k,l,n,m*
+a,aa,aaa,aaaa,aaaaa,aaaaaa
+a,ab,abc,d,de,def,g,gh,ghi

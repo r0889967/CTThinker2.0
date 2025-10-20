@@ -1,0 +1,5 @@
+Given the following sequence of strings.
+a, ab, adad, ahahahah, ?
+
+What is the next string in the sequence? Please enter the answer below.
+Hint: in what places are b, d and h in the alphabet?
